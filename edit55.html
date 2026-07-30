@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* الهيدر وشريط التنقل */
         header {
             background: #ffffff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -78,7 +77,6 @@
             color: #1e3a8a;
         }
 
-        /* البانر الرئيسي */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: #ffffff;
@@ -118,7 +116,6 @@
             transform: translateY(-2px);
         }
 
-        /* المحتوى الرئيسي */
         .container {
             max-width: 1200px;
             margin: 50px auto;
@@ -142,7 +139,6 @@
             font-size: 15px;
         }
 
-        /* شبكة الكليات والتخصصات */
         .colleges-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -185,7 +181,6 @@
             line-height: 1.6;
         }
 
-        /* بوابة القبول والتسجيل (النموذج) */
         .admission-section {
             background: #ffffff;
             border-radius: 16px;
@@ -237,6 +232,12 @@
             background: #f8fafc;
         }
 
+        .form-group input[type="file"] {
+            padding: 9px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
         .form-group input:focus, .form-group select:focus {
             border-color: #1e3a8a;
             background: #ffffff;
@@ -261,20 +262,6 @@
             background: #15803d;
         }
 
-        /* رسالة النجاح التفاعلية */
-        .success-alert {
-            display: none;
-            background: #dcfce7;
-            border: 1px solid #bbf7d0;
-            color: #166534;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        /* الفوتر */
         footer {
             background: #0f172a;
             color: #94a3b8;
@@ -292,7 +279,6 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
@@ -310,17 +296,14 @@
         </div>
     </header>
 
-    <!-- البانر -->
     <section class="hero" id="hero">
         <h2>التميز القانوني والمهني يبدأ من هنا</h2>
         <p>نقدم برامج تدريبية ودبلومات نوعية متخصصة في الأنظمة القانونية، المرافعات، والتحكيم التجاري.</p>
         <a href="#admission" class="hero-btn">سجل الآن في الدورات القادمة</a>
     </section>
 
-    <!-- المحتوى -->
     <div class="container">
         
-        <!-- الأقسام والبرامج -->
         <div class="section-title" id="colleges">
             <h3>البرامج والأقسام الأكاديمية</h3>
             <p>مسارات تدريبية معتمدة لتأهيل الكوادر في المجال القانوني والإداري</p>
@@ -349,40 +332,49 @@
             </div>
         </div>
 
-        <!-- بوابة القبول -->
         <div class="section-title" id="admission">
             <h3>بوابة القبول والتسجيل الإلكتروني</h3>
-            <p>املأ نموذج الالتحاق أدناه لتقديم طلب انضمامك للبرامج التدريبية</p>
+            <p>املأ نموذج الالتحاق وأرفق مستنداتك الرسمية للتقديم</p>
         </div>
 
         <div class="admission-section">
-            <div class="success-alert" id="successAlert">
-                <i class="fa-solid fa-circle-check"></i> تم إرسال طلب القبول بنجاح إلى معهد المحامي جاسم علي آل مطر! سيتم التواصل معك قريباً.
-            </div>
-
-            <form id="admissionForm" onsubmit="submitForm(event)">
+            <!-- النموذج مربوط مباشرة على إيميلك الشخصي عبر Formspree مع دعم رفع ملفات الـ PDF -->
+            <form action="https://formspree.io/f/xblywazg" method="POST" enctype="multipart/form-data">
                 <div class="form-grid">
                     <div class="form-group">
                         <label>الاسم الثلاثي</label>
-                        <input type="text" required placeholder="أدخل اسمك الكامل">
+                        <input type="text" name="الاسم_الثلاثي" required placeholder="أدخل اسمك الكامل">
                     </div>
                     <div class="form-group">
-                        <label>البريد الإلكتروني</label>
-                        <input type="email" required placeholder="example@domain.com">
+                        <label>البريد الإلكتروني للمتطوع/الطالب</label>
+                        <input type="email" name="البريد_الإلكتروني" required placeholder="example@domain.com">
                     </div>
                     <div class="form-group">
                         <label>رقم الجوال</label>
-                        <input type="tel" required placeholder="05xxxxxxxx">
+                        <input type="tel" name="رقم_الجوال" required placeholder="05xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>المؤهل الدراسي الحالي</label>
+                        <select name="المؤهل_الدراسي" required>
+                            <option value="">اختر المؤهل...</option>
+                            <option value="ثانوية عامة">ثانوية عامة</option>
+                            <option value="دبلوم">دبلوم</option>
+                            <option value="بكالوريوس">بكالوريوس</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>البرنامج التدريبي المطلوب</label>
-                        <select required>
+                        <select name="البرنامج_التدريبي" required>
                             <option value="">اختر البرنامج الأكاديمي...</option>
-                            <option value="commercial">الأنظمة التجارية</option>
-                            <option value="litigation">المرافعات والإجراءات</option>
-                            <option value="arbitration">التحكيم وتسوية النزاعات</option>
-                            <option value="labor">الأنظمة الجنائية والعمالية</option>
+                            <option value="الأنظمة التجارية">الأنظمة التجارية</option>
+                            <option value="المرافعات والإجراءات">المرافعات والإجراءات</option>
+                            <option value="التحكيم وتسوية النزاعات">التحكيم وتسوية النزاعات</option>
+                            <option value="الأنظمة الجنائية والعمالية">الأنظمة الجنائية والعمالية</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label>إرفاق الشهادة أو السيرة الذاتية (PDF)</label>
+                        <input type="file" name="ملف_الشهادة" accept=".pdf" required>
                     </div>
                     <div class="form-group full">
                         <button type="submit" class="submit-btn">إرسال طلب التسجيل</button>
@@ -393,25 +385,9 @@
 
     </div>
 
-    <!-- الفوتر -->
     <footer>
         <p>جميع الحقوق محفوظة لصالح <span>معهد المحامي جاسم علي آل مطر</span> &copy; 2026</p>
     </footer>
 
-    <!-- سكربت تفاعل نموذج التسجيل -->
-    <script>
-        function submitForm(event) {
-            event.preventDefault(); 
-            const alertBox = document.getElementById('successAlert');
-            const form = document.getElementById('admissionForm');
-            
-            alertBox.style.display = 'block';
-            form.reset(); 
-            
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 6000);
-        }
-    </script>
 </body>
 </html>
