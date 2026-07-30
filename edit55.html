@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coldlattice | لوحة الرسم الحرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* شاشة البداية (تسجيل الاسم والصورة) */
+        #welcomeModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .welcome-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .welcome-card h2 {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        .welcome-card p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            background: #0f172a;
+            border: 1px solid #475569;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        /* الهيدر بعد الدخول */
+        header {
+            background: #1e293b;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #334155;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: none; /* مخفي لين يسجل الدخول */
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #3b82f6;
+        }
+
+        .brand-info h1 {
+            font-size: 16px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .brand-info span {
+            font-size: 12px;
+            color: #38bdf8;
+        }
+
+        /* شريط الأدوات */
+        .toolbar {
+            background: #1e293b;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+            display: none; /* مخفي لين يسجل الدخول */
+        }
+
+        .tool-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f172a;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .tool-group label {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .color-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .color-btn.active {
+            border-color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        input[type="color"] {
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: none;
+        }
+
+        input[type="range"] {
+            accent-color: #3b82f6;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .btn-success {
+            background: #22c55e;
+        }
+
+        .btn-success:hover {
+            background: #16a34a;
+        }
+
+        /* منطقة الرسم */
+        .canvas-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #0b0f19;
+            display: none; /* مخفي لين يسجل الدخول */
+        }
+
+        canvas {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- نافذة إدخال الاسم والصورة قبل الدخول -->
+    <div id="welcomeModal">
+        <div class="welcome-card">
+            <h2>مرحباً بك في coldlattice</h2>
+            <p>فضلاً، أدخل بياناتك لتبدأ لوحة الرسم الخاصة بك</p>
+            
+            <div class="form-group">
+                <label>اسمك أو اللقب:</label>
+                <input type="text" id="usernameInput" placeholder="مثال: Problem أو أشكل..." autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label>رابط صورتك الشخصية (اختياري):</label>
+                <input type="url" id="avatarInput" placeholder="https://... رابط الصورة">
+            </div>
+
+            <button class="btn" onclick="startApp()" style="justify-content: center; width: 100%; padding: 12px;">
+                <i class="fa-solid fa-arrow-right"></i> ابدأ الرسم
+            </button>
+        </div>
+    </div>
+
+    <!-- هيدر الموقع بعد الدخول -->
+    <header id="mainHeader">
+        <div class="user-profile">
+            <img id="displayAvatar" src="" alt="Avatar" class="user-avatar">
+            <div class="brand-info">
+                <h1 id="displayName"></h1>
+                <span>coldlattice - لوحة الرسم الحرة</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- شريط الأدوات -->
+    <div class="toolbar" id="mainToolbar">
+        <div class="tool-group">
+            <label>الألوان:</label>
+            <div class="color-btn active" style="background: #0f172a;" onclick="setColor('#0f172a', this)"></div>
+            <div class="color-btn" style="background: #ef4444;" onclick="setColor('#ef4444', this)"></div>
+            <div class="color-btn" style="background: #3b82f6;" onclick="setColor('#3b82f6', this)"></div>
+            <div class="color-btn" style="background: #22c55e;" onclick="setColor('#22c55e', this)"></div>
+            <div class="color-btn" style="background: #eab308;" onclick="setColor('#eab308', this)"></div>
+            <input type="color" id="colorPicker" value="#0f172a" onchange="setColor(this.value, null)">
+        </div>
+
+        <div class="tool-group">
+            <label>حجم القلم: <span id="sizeVal">5</span>px</label>
+            <input type="range" id="brushSize" min="1" max="50" value="5" oninput="updateSize(this.value)">
+        </div>
+
+        <button class="btn btn-danger" onclick="clearCanvas()">
+            <i class="fa-solid fa-trash"></i> مسح اللوحة
+        </button>
+
+        <button class="btn btn-success" onclick="saveImage()">
+            <i class="fa-solid fa-download"></i> حفظ الرسمة
+        </button>
+    </div>
+
+    <!-- منطقة الكانفاس -->
+    <div class="canvas-container" id="mainCanvasContainer">
+        <canvas id="paintCanvas"></canvas>
+    </div>
+
+    <script>
+        function startApp() {
+            const name = document.getElementById('usernameInput').value.trim();
+            const avatarUrl = document.getElementById('avatarInput').value.trim();
+
+            if (!name) {
+                alert('عذراً، يجب إدخال الاسم للمتابعة!');
+                return;
+            }
+
+            // تعيين الاسم
+            document.getElementById('displayName').textContent = name;
+
+            // تعيين الصورة (لو ما حط رابط يحط له صورة افتراضية فخمة)
+            const avatarImg = document.getElementById('displayAvatar');
+            if (avatarUrl) {
+                avatarImg.src = avatarUrl;
+            } else {
+                avatarImg.src = "https://cdn.discordapp.com/attachments/1346700261946560546/1532441825418285237/download_34.jpg";
+            }
+
+            // إخفاء نافذة الترحيب وإظهار عناصر الموقع والكانفاس
+            document.getElementById('welcomeModal').style.display = 'none';
+            document.getElementById('mainHeader').style.display = 'flex';
+            document.getElementById('mainToolbar').style.display = 'flex';
+            document.getElementById('mainCanvasContainer').style.display = 'flex';
+
+            resizeCanvas();
+        }
+
+        const canvas = document.getElementById('paintCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            const container = document.getElementById('mainCanvasContainer');
+            canvas.width = container.clientWidth - 40;
+            canvas.height = container.clientHeight - 40;
+            
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        window.addEventListener('resize', () => {
+            if(document.getElementById('welcomeModal').style.display === 'none') {
+                resizeCanvas();
+            }
+        });
+
+        let painting = false;
+        let currentColor = '#0f172a';
+        let currentSize = 5;
+
+        function startPosition(e) {
+            painting = true;
+            draw(e);
+        }
+
+        function endPosition() {
+            painting = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!painting) return;
+
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = currentColor;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
+
+        canvas.addEventListener('touchstart', startPosition);
+        canvas.addEventListener('touchend', endPosition);
+        canvas.addEventListener('touchmove', draw);
+
+        function setColor(color, element) {
+            currentColor = color;
+            document.getElementById('colorPicker').value = color;
+            
+            if(element) {
+                document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
+                element.classList.add('active');
+            }
+        }
+
+        function updateSize(size) {
+            currentSize = size;
+            document.getElementById('sizeVal').textContent = size;
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function saveImage() {
+            const link = document.createElement('a');
+            link.download = 'coldlattice-drawing.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
