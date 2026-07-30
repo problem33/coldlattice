@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معهد المحامي جاسم علي آل مطر | بوابة القبول والتسجيل</title>
+    <title>موقع جاسم | حاسبة النسبة المئوية والموزونة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,253 +16,126 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background-color: #f1f5f9;
             color: #1e293b;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         header {
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-area i {
-            font-size: 32px;
-            color: #1e3a8a;
-        }
-
-        .logo-text h1 {
-            font-size: 19px;
-            font-weight: 900;
-            color: #0f172a;
-        }
-
-        .logo-text span {
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #475569;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1e3a8a;
-        }
-
-        .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: #ffffff;
-            padding: 80px 20px;
+            padding: 30px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .hero h2 {
-            font-size: 34px;
+        header h1 {
+            font-size: 28px;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
-        .hero p {
-            font-size: 18px;
+        header p {
+            font-size: 15px;
             color: #94a3b8;
-            max-width: 650px;
-            margin: 0 auto 30px auto;
-        }
-
-        .hero-btn {
-            background: #d97706;
-            color: #ffffff;
-            padding: 12px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
-        }
-
-        .hero-btn:hover {
-            background: #b45309;
-            transform: translateY(-2px);
         }
 
         .container {
-            max-width: 1200px;
-            margin: 50px auto;
+            max-width: 600px;
+            margin: 40px auto;
             padding: 0 20px;
+            width: 100%;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h3 {
-            font-size: 28px;
-            font-weight: 900;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #64748b;
-            font-size: 15px;
-        }
-
-        .colleges-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .college-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .college-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.1);
-            border-color: #93c5fd;
-        }
-
-        .college-card i {
-            font-size: 40px;
-            color: #1e3a8a;
-            margin-bottom: 20px;
-        }
-
-        .college-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
-
-        .college-card p {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .admission-section {
+        .calc-card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        @media(max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none;
-            }
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-group.full {
-            grid-column: span 2;
+            margin-bottom: 20px;
         }
 
         .form-group label {
-            font-weight: 600;
+            display: block;
+            font-weight: 700;
             font-size: 14px;
             color: #334155;
+            margin-bottom: 8px;
         }
 
-        .form-group input, .form-group select {
+        .form-group input {
+            width: 100%;
             padding: 12px 15px;
             border-radius: 8px;
             border: 1px solid #cbd5e1;
-            font-size: 14px;
+            font-size: 16px;
             outline: none;
             transition: 0.3s;
             background: #f8fafc;
         }
 
-        .form-group input:focus, .form-group select:focus {
-            border-color: #1e3a8a;
+        .form-group input:focus {
+            border-color: #2563eb;
             background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .submit-btn {
-            background: #16a34a;
+        .calc-btn {
+            background: #2563eb;
             color: #ffffff;
             border: none;
+            width: 100%;
             padding: 14px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
         }
 
-        .submit-btn:hover {
-            background: #15803d;
+        .calc-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            display: none;
+            margin-top: 30px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            color: #166534;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: #15803d;
         }
 
         footer {
             background: #0f172a;
             color: #94a3b8;
             text-align: center;
-            padding: 30px;
-            margin-top: 80px;
+            padding: 20px;
             font-size: 14px;
+            margin-top: 40px;
         }
 
         footer span {
@@ -274,113 +147,59 @@
 <body>
 
     <header>
-        <div class="nav-container">
-            <div class="logo-area">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <div class="logo-text">
-                    <h1>معهد المحامي جاسم علي آل مطر</h1>
-                    <span>للدراسات القانونية والأنظمة التدريبية</span>
-                </div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#hero">الرئيسية</a></li>
-                <li><a href="#colleges">التخصصات والبرامج</a></li>
-                <li><a href="#admission">القبول والتسجيل</a></li>
-            </ul>
-        </div>
+        <h1>موقع جاسم</h1>
+        <p>حاسبة النسبة الموزونة للقبول الجامعي (ثانوية - قدرات - تحصيلي)</p>
     </header>
 
-    <section class="hero" id="hero">
-        <h2>التميز القانوني والمهني يبدأ من هنا</h2>
-        <p>نقدم برامج تدريبية ودبلومات نوعية متخصصة في الأنظمة القانونية، المرافعات، والتحكيم التجاري.</p>
-        <a href="#admission" class="hero-btn">سجل الآن في الدورات القادمة</a>
-    </section>
-
     <div class="container">
-        
-        <div class="section-title" id="colleges">
-            <h3>البرامج والأقسام الأكاديمية</h3>
-            <p>مسارات تدريبية معتمدة لتأهيل الكوادر في المجال القانوني والإداري</p>
-        </div>
-
-        <div class="colleges-grid">
-            <div class="college-card">
-                <i class="fa-solid fa-gavel"></i>
-                <h4>قسم الأنظمة التجارية</h4>
-                <p>دراسة العقود التجارية، صياغة الاتفاقيات، ونظام الشركات والنزاعات التجارية.</p>
-            </div>
-            <div class="college-card">
-                <i class="fa-solid fa-landmark"></i>
-                <h4>قسم المرافعات والإجراءات</h4>
-                <p>تأهيل عملي متقدم في اللوائح الاعتراضية، التقاضي، وتمثيل الخصوم.</p>
-            </div>
-            <div class="college-card">
-                <i class="fa-solid fa-handshake"></i>
-                <h4>قسم التحكيم وتسوية النزاعات</h4>
-                <p>مهارات الوساطة والحلول البديلة وفض المنازعات بالطرق القانونية السليمة.</p>
-            </div>
-            <div class="college-card">
-                <i class="fa-solid fa-file-contract"></i>
-                <h4>قسم الأنظمة الجنائية والعمالية</h4>
-                <p>فهم متعمق لقوانين العمل، الحقوق العمالية، والدعاوى الجزائية.</p>
-            </div>
-        </div>
-
-        <div class="section-title" id="admission">
-            <h3>بوابة القبول والتسجيل الإلكتروني</h3>
-            <p>املأ نموذج الالتحاق وأرفق رابط مستنداتك الرسمية للتقديم</p>
-        </div>
-
-        <div class="admission-section">
-            <form action="https://formspree.io/f/xrenvbeg" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>الاسم الثلاثي</label>
-                        <input type="text" name="الاسم_الثلاثي" required placeholder="أدخل اسمك الكامل">
-                    </div>
-                    <div class="form-group">
-                        <label>البريد الإلكتروني للطالب</label>
-                        <input type="email" name="البريد_الإلكتروني" required placeholder="example@domain.com">
-                    </div>
-                    <div class="form-group">
-                        <label>رقم الجوال</label>
-                        <input type="tel" name="رقم_الجوال" required placeholder="05xxxxxxxx">
-                    </div>
-                    <div class="form-group">
-                        <label>المؤهل الدراسي الحالي</label>
-                        <select name="المؤهل_الدراسي" required>
-                            <option value="">اختر المؤهل...</option>
-                            <option value="ثانوية عامة">ثانوية عامة</option>
-                            <option value="دبلوم">دبلوم</option>
-                            <option value="بكالوريوس">بكالوريوس</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>البرنامج التدريبي المطلوب</label>
-                        <select name="البرنامج_التدريبي" required>
-                            <option value="">اختر البرنامج الأكاديمي...</option>
-                            <option value="الأنظمة التجارية">الأنظمة التجارية</option>
-                            <option value="المرافعات والإجراءات">المرافعات والإجراءات</option>
-                            <option value="التحكيم وتسوية النزاعات">التحكيم وتسوية النزاعات</option>
-                            <option value="الأنظمة الجنائية والعمالية">الأنظمة الجنائية والعمالية</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>رابط الشهادة (Google Drive / Dropbox)</label>
-                        <input type="url" name="رابط_الشهادة" required placeholder="https://drive.google.com/...">
-                    </div>
-                    <div class="form-group full">
-                        <button type="submit" class="submit-btn">إرسال طلب التسجيل</button>
-                    </div>
+        <div class="calc-card">
+            <form id="weightedForm" onsubmit="calculateWeighted(event)">
+                <div class="form-group">
+                    <label><i class="fa-solid fa-graduation-cap"></i> نسبة الثانوية العامة (وزنها 30%)</label>
+                    <input type="number" id="highschool" step="0.01" min="0" max="100" required placeholder="مثال: 90">
                 </div>
-            </form>
-        </div>
 
+                <div class="form-group">
+                    <label><i class="fa-solid fa-brain"></i> درجة اختبار القدرات العامة (وزنها 30%)</label>
+                    <input type="number" id="qudrat" step="0.01" min="0" max="100" required placeholder="مثال: 85">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-book-open"></i> درجة اختبار التحصيلي (وزنها 40%)</label>
+                    <input type="number" id="tahsili" step="0.01" min="0" max="100" required placeholder="مثال: 80">
+                </div>
+
+                <button type="submit" class="calc-btn">احسب النسبة الموزونة</button>
+            </form>
+
+            <div class="result-box" id="resultBox">
+                <h3>نسبتك الموزونة النهائية:</h3>
+                <div class="result-value" id="finalResult">0.00%</div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة لصالح <span>معهد المحامي جاسم علي آل مطر</span> &copy; 2026</p>
+        <p>جميع الحقوق محفوظة لصالح <span>موقع جاسم</span> &copy; 2026</p>
     </footer>
 
+    <script>
+        function calculateWeighted(event) {
+            event.preventDefault();
+
+            // النسب المعيارية الشائعة (30% ثانوية، 30% قدرات، 40% تحصيلي)
+            let hs = parseFloat(document.getElementById('highschool').value) * 0.30;
+            let qd = parseFloat(document.getElementById('qudrat').value) * 0.30;
+            let th = parseFloat(document.getElementById('tahsili').value) * 0.40;
+
+            let total = hs + qd + th;
+
+            let resultBox = document.getElementById('resultBox');
+            let finalResult = document.getElementById('finalResult');
+
+            finalResult.textContent = total.toFixed(2) + '%';
+            resultBox.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
