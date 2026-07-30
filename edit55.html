@@ -188,7 +188,7 @@
     </div>
 
     <script>
-        const apiKey = "AQ.Ab8RN6JyMoHVpGspHwvfKPO2rDuQwk7uDNv4TRC3fi4UYftzIQ";
+        const apiKey = "AQ.Ab8RN6KHmEX-pZE6DNixp-gcaZ1IZHMceOVe_tJr08igOrRcuA";
         
         async function sendMessage(event) {
             event.preventDefault();
@@ -200,7 +200,6 @@
             const userText = inputField.value.trim();
             if (!userText) return;
 
-            // إضافة رسالة المستخدم للشاشة
             const userMsgDiv = document.createElement('div');
             userMsgDiv.className = 'message user';
             userMsgDiv.textContent = userText;
@@ -245,7 +244,7 @@
                 typingIndicator.style.display = 'none';
                 const errorDiv = document.createElement('div');
                 errorDiv.className = 'message ai';
-                errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، تأكد من المفتاح أو جرب مرة ثانية.";
+                errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، جرب مرة ثانية.";
                 chatMessages.appendChild(errorDiv);
             }
 
