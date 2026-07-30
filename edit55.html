@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع جاسم | حاسبة النسبة المئوية والموزونة</title>
+    <title>coldlattice | فضفض مع أبو شنب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,189 +16,240 @@
         }
 
         body {
-            background-color: #f1f5f9;
-            color: #1e293b;
-            min-height: 100vh;
+            background-color: #0f172a;
+            color: #f8fafc;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            color: #ffffff;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: #1e293b;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #334155;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        header h1 {
-            font-size: 28px;
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #3b82f6;
+        }
+
+        .brand-info h1 {
+            font-size: 18px;
             font-weight: 900;
-            margin-bottom: 5px;
+            color: #ffffff;
         }
 
-        header p {
+        .brand-info span {
+            font-size: 12px;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .brand-info span::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .chat-container {
+            flex: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 12px 18px;
+            border-radius: 14px;
             font-size: 15px;
-            color: #94a3b8;
+            line-height: 1.6;
+            word-wrap: break-word;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
-            width: 100%;
-        }
-
-        .calc-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            font-size: 14px;
-            color: #334155;
-            margin-bottom: 8px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-            background: #f8fafc;
-        }
-
-        .form-group input:focus {
-            border-color: #2563eb;
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .calc-btn {
+        .message.user {
             background: #2563eb;
             color: #ffffff;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .message.ai {
+            background: #1e293b;
+            color: #f1f5f9;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input-area {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            gap: 10px;
+            border: 1px solid #334155;
             margin-top: 10px;
         }
 
-        .calc-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .result-box {
-            display: none;
-            margin-top: 30px;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .result-box h3 {
-            color: #166534;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .result-value {
-            font-size: 32px;
-            font-weight: 900;
-            color: #15803d;
-        }
-
-        footer {
+        .chat-input-area input {
+            flex: 1;
             background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            margin-top: 40px;
+            border: 1px solid #475569;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
         }
 
-        footer span {
+        .chat-input-area input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        .chat-input-area button {
+            background: #3b82f6;
             color: #ffffff;
+            border: none;
+            padding: 0 22px;
+            border-radius: 8px;
             font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .chat-input-area button:hover {
+            background: #2563eb;
+        }
+
+        .typing-indicator {
+            font-size: 13px;
+            color: #94a3b8;
+            align-self: flex-end;
+            display: none;
+            padding: 5px 10px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>موقع جاسم</h1>
-        <p>حاسبة النسبة الموزونة للقبول الجامعي (ثانوية - قدرات - تحصيلي)</p>
+        <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532427020250906624/download_32.jpg?ex=6a6ccf60&is=6a6b7de0&hm=2fc0ca392773482d70ee23fb518004e00cf55b31d0e6ab6d7a6beaf602899ad1&" alt="coldlattice logo" class="brand-logo">
+        <div class="brand-info">
+            <h1>coldlattice - فضفض مع أبو شنب</h1>
+            <span>متصل الآن وجاهز للفضفضة</span>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="calc-card">
-            <form id="weightedForm" onsubmit="calculateWeighted(event)">
-                <div class="form-group">
-                    <label><i class="fa-solid fa-graduation-cap"></i> نسبة الثانوية العامة (وزنها 30%)</label>
-                    <input type="number" id="highschool" step="0.01" min="0" max="100" required placeholder="مثال: 90">
-                </div>
-
-                <div class="form-group">
-                    <label><i class="fa-solid fa-brain"></i> درجة اختبار القدرات العامة (وزنها 30%)</label>
-                    <input type="number" id="qudrat" step="0.01" min="0" max="100" required placeholder="مثال: 85">
-                </div>
-
-                <div class="form-group">
-                    <label><i class="fa-solid fa-book-open"></i> درجة اختبار التحصيلي (وزنها 40%)</label>
-                    <input type="number" id="tahsili" step="0.01" min="0" max="100" required placeholder="مثال: 80">
-                </div>
-
-                <button type="submit" class="calc-btn">احسب النسبة الموزونة</button>
-            </form>
-
-            <div class="result-box" id="resultBox">
-                <h3>نسبتك الموزونة النهائية:</h3>
-                <div class="result-value" id="finalResult">0.00%</div>
+    <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai">
+                هلا والله! أنا <b>أبو شنب</b>، اعتبرني أخوك الكبير اجهر باللي خاطرك فيه، صكني بالسالفة وفضفض براحتك وش صاير معك؟
             </div>
         </div>
+
+        <div class="typing-indicator" id="typingIndicator">أبو شنب قاعد يكتب الرد...</div>
+
+        <form class="chat-input-area" id="chatForm" onsubmit="sendMessage(event)">
+            <input type="text" id="userInput" placeholder="اكتب هنا، فضفض ولا تشيل هم..." required autocomplete="off">
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i> إرسال</button>
+        </form>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة لصالح <span>موقع جاسم</span> &copy; 2026</p>
-    </footer>
-
     <script>
-        function calculateWeighted(event) {
+        const apiKey = "AQ.Ab8RN6JyMoHVpGspHwvfKPO2rDuQwk7uDNv4TRC3fi4UYftzIQ";
+        
+        async function sendMessage(event) {
             event.preventDefault();
+            
+            const inputField = document.getElementById('userInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = document.getElementById('typingIndicator');
+            
+            const userText = inputField.value.trim();
+            if (!userText) return;
 
-            // النسب المعيارية الشائعة (30% ثانوية، 30% قدرات، 40% تحصيلي)
-            let hs = parseFloat(document.getElementById('highschool').value) * 0.30;
-            let qd = parseFloat(document.getElementById('qudrat').value) * 0.30;
-            let th = parseFloat(document.getElementById('tahsili').value) * 0.40;
+            // إضافة رسالة المستخدم للشاشة
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'message user';
+            userMsgDiv.textContent = userText;
+            chatMessages.appendChild(userMsgDiv);
 
-            let total = hs + qd + th;
+            inputField.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            typingIndicator.style.display = 'block';
 
-            let resultBox = document.getElementById('resultBox');
-            let finalResult = document.getElementById('finalResult');
+            try {
+                // إرسال الطلب لنموذج جيميناي مع توجيه الشخصية لأبو شنب
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [
+                            {
+                                role: "user",
+                                parts: [{ text: "تعليمات النظام: أنت شخصية ودودة ومقربة واسمك 'أبو شنب'، تتحدث باللهجة الخليجية والعامية المريحة، ومهنتك الاستماع للفضفضة وتقديم النصائح الأخوية الداعمة والمريحة للمستخدم. الرد يجب أن يكون عفوي وبدون تكلف.\n\nالرسالة الموجهة لك الآن من المستخدم هي: " + userText }]
+                            }
+                        ]
+                    })
+                });
 
-            finalResult.textContent = total.toFixed(2) + '%';
-            resultBox.style.display = 'block';
+                const data = await response.json();
+                typingIndicator.style.display = 'none';
+
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    const aiReply = data.candidates[0].content.parts[0].text;
+                    
+                    const aiMsgDiv = document.createElement('div');
+                    aiMsgDiv.className = 'message ai';
+                    aiMsgDiv.innerHTML = aiReply.replace(/\n/g, '<br>');
+                    chatMessages.appendChild(aiMsgDiv);
+                } else {
+                    throw new Error("استجابة غير صالحة");
+                }
+
+            } catch (error) {
+                typingIndicator.style.display = 'none';
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'message ai';
+                errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، جرب مرة ثانية.";
+                chatMessages.appendChild(errorDiv);
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
     </script>
 </body>
