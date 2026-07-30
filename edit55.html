@@ -210,8 +210,8 @@
             typingIndicator.style.display = 'block';
 
             try {
-                // تم تعديل اسم الموديل إلى gemini-1.5-flash الصحيح لمنع أخطاء 404
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                // استخدام الإصدار القياسي v1 مع الموديل لتجاوز خطأ 404
+                const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
                 
                 const response = await fetch(url, {
                     method: "POST",
@@ -237,12 +237,13 @@
                     aiMsgDiv.innerHTML = aiReply.replace(/\n/g, '<br>');
                     chatMessages.appendChild(aiMsgDiv);
                 } else {
-                    console.error(data);
+                    console.error("API Response Error:", data);
                     throw new Error("استجابة غير صالحة");
                 }
 
             } catch (error) {
                 typingIndicator.style.display = 'none';
+                console.error("Catch Error:", error);
                 const errorDiv = document.createElement('div');
                 errorDiv.className = 'message ai';
                 errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، جرب مرة ثانية.";
