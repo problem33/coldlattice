@@ -165,7 +165,7 @@
 <body>
 
     <header>
-        <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532427020250906624/download_32.jpg?ex=6a6ccf60&is=6a6b7de0&hm=2fc0ca392773482d70ee23fb518004e00cf55b31d0e6ab6d7a6beaf602899ad1&" alt="coldlattice logo" class="brand-logo">
+        <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532441825418285237/download_34.jpg?ex=6a6cdd2a&is=6a6b8baa&hm=cd8b86372f312075742d06322101772e4307c0c3e609ebd2de84232775bc43dc&" alt="coldlattice logo" class="brand-logo">
         <div class="brand-info">
             <h1>coldlattice - فضفض مع أبو شنب</h1>
             <span>متصل الآن وجاهز للفضفضة</span>
@@ -211,8 +211,7 @@
             typingIndicator.style.display = 'block';
 
             try {
-                // إرسال الطلب لنموذج جيميناي مع توجيه الشخصية لأبو شنب
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
                 
                 const response = await fetch(url, {
                     method: "POST",
@@ -221,7 +220,7 @@
                         contents: [
                             {
                                 role: "user",
-                                parts: [{ text: "تعليمات النظام: أنت شخصية ودودة ومقربة واسمك 'أبو شنب'، تتحدث باللهجة الخليجية والعامية المريحة، ومهنتك الاستماع للفضفضة وتقديم النصائح الأخوية الداعمة والمريحة للمستخدم. الرد يجب أن يكون عفوي وبدون تكلف.\n\nالرسالة الموجهة لك الآن من المستخدم هي: " + userText }]
+                                parts: [{ text: "تعليمات النظام: أنت شخصية ودودة ومقربة واسمك 'أبو شنب'، تتحدث باللهجة الخليجية والعامية المريحة، ومهنتك الاستماع للفضفضة وتقديم النصائح الأخوية الداعمة والمريحة للمستخدم. الرد يجب أن يكون عفوي وبدون تكلف وبشكل موجز وودود.\n\nالرسالة الموجهة لك الآن من المستخدم هي: " + userText }]
                             }
                         ]
                     })
@@ -238,6 +237,7 @@
                     aiMsgDiv.innerHTML = aiReply.replace(/\n/g, '<br>');
                     chatMessages.appendChild(aiMsgDiv);
                 } else {
+                    console.error(data);
                     throw new Error("استجابة غير صالحة");
                 }
 
@@ -245,7 +245,7 @@
                 typingIndicator.style.display = 'none';
                 const errorDiv = document.createElement('div');
                 errorDiv.className = 'message ai';
-                errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، جرب مرة ثانية.";
+                errorDiv.textContent = "عذراً يا غالي صار فيه مشكلة بسيطة بالاتصال، تأكد من المفتاح أو جرب مرة ثانية.";
                 chatMessages.appendChild(errorDiv);
             }
 
