@@ -232,12 +232,6 @@
             background: #f8fafc;
         }
 
-        .form-group input[type="file"] {
-            padding: 9px;
-            background: #ffffff;
-            cursor: pointer;
-        }
-
         .form-group input:focus, .form-group select:focus {
             border-color: #1e3a8a;
             background: #ffffff;
@@ -334,12 +328,11 @@
 
         <div class="section-title" id="admission">
             <h3>بوابة القبول والتسجيل الإلكتروني</h3>
-            <p>املأ نموذج الالتحاق وأرفق مستنداتك الرسمية للتقديم</p>
+            <p>املأ نموذج الالتحاق وأرفق رابط مستنداتك الرسمية للتقديم</p>
         </div>
 
         <div class="admission-section">
-            <!-- النموذج مربوط الآن على رابطك الشخصي في Formspree -->
-            <form action="https://formspree.io/f/xrenvbeg" method="POST" enctype="multipart/form-data">
+            <form action="https://formspree.io/f/xrenvbeg" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label>الاسم الثلاثي</label>
@@ -373,8 +366,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>إرفاق الشهادة (PDF)</label>
-                        <input type="file" name="ملف_الشهادة" accept=".pdf" required>
+                        <label>رابط الشهادة (Google Drive / Dropbox)</label>
+                        <input type="url" name="رابط_الشهادة" required placeholder="https://drive.google.com/...">
                     </div>
                     <div class="form-group full">
                         <button type="submit" class="submit-btn">إرسال طلب التسجيل</button>
