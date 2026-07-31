@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الشخصية - ! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓</title>
+    <title>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓 - TikTok Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,178 +16,250 @@
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #121212;
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
         }
 
-        .container {
-            max-width: 600px;
-            width: 90%;
-            margin: 50px auto;
-            background: #1e293b;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            border: 1px solid #334155;
+        .profile-container {
+            width: 100%;
+            max-width: 450px;
+            background: #1f1f1f;
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 20px;
             text-align: center;
+            border: 1px solid #2f2f2f;
         }
 
-        .profile-img-container {
+        /* حاوية الصورة مع إطار النار المتحرك */
+        .fire-avatar-container {
             position: relative;
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 20px;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #3b82f6;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .status-dot {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 20px;
-            height: 20px;
-            background-color: #10b981;
-            border: 3px solid #1e293b;
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-size: 26px;
-            font-weight: 900;
-            color: #f1f5f9;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .bio {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .contact-form {
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #cbd5e1;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: #0f172a;
-            border: 1px solid #475569;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
         }
 
-        .submit-btn:hover {
+        /* تأثير إطار النار المتحرك */
+        .fire-avatar-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff0000, #ff7700, #ffcc00, #ff3300);
+            z-index: 1;
+            animation: fireAnimation 2.5s linear infinite;
+            filter: blur(4px);
+        }
+
+        .fire-avatar-container::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff4500, #ff8c00, #ffd700, #ff2400);
+            z-index: 2;
+            animation: fireAnimation 2s linear infinite;
+        }
+
+        @keyframes fireAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-img {
+            position: relative;
+            z-index: 3;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1f1f1f;
+        }
+
+        .username-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .verified-badge {
+            color: #20d5ec;
+            font-size: 16px;
+        }
+
+        .handle {
+            color: #8a8a8a;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* الإحصائيات (متابعين، إعجابات) */
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8a8a8a;
+        }
+
+        /* الأزرار */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .btn-tiktok {
+            flex: 1;
+            background: #fe2c55;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-tiktok:hover {
             opacity: 0.9;
-            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #333333;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* الفيديوهات الوهمية (شبيه تيك توك) */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            border-top: 1px solid #2f2f2f;
+            padding-top: 15px;
+        }
+
+        .video-thumbnail {
+            background: #2a2a2a;
+            height: 140px;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            padding: 8px;
+            position: relative;
+            overflow: hidden;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .video-thumbnail i {
+            margin-left: 4px;
         }
 
         footer {
+            margin-top: 30px;
             text-align: center;
-            padding: 20px;
-            color: #64748b;
+            color: #666;
             font-size: 12px;
-            border-top: 1px solid #1e293b;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- صورة الحساب -->
-        <div class="profile-img-container">
-            <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532721483191816212/8355BE4E-C812-416E-89DC-14147A41450E.gif?ex=6a6de19e&is=6a6c901e&hm=e0f42a3086c1eb9d5fe16662c3a694ea3f3aefc2440fd315326b7fb722e7d12d&" alt="Witcher Profile" class="profile-img">
-            <div class="status-dot"></div>
+    <div class="profile-container">
+        <!-- الصورة والإطار الناري المتحرك -->
+        <div class="fire-avatar-container">
+            <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532721483191816212/8355BE4E-C812-416E-89DC-14147A41450E.gif?ex=6a6de19e&is=6a6c901e&hm=e0f42a3086c1eb9d5fe16662c3a694ea3f3aefc2440fd315326b7fb722e7d12d&" alt="Avatar" class="profile-img">
         </div>
 
-        <!-- الاسم -->
-        <h1>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓</h1>
-        <p class="bio">أهلاً بك في صفحتي الشخصية. تواصل معي مباشرة عبر نموذج الرسائل أدناه.</p>
+        <!-- الاسم وعلامة التوثيق -->
+        <div class="username-row">
+            <h1>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓</h1>
+            <i class="fa-solid fa-circle-check verified-badge"></i>
+        </div>
+        <div class="handle">@witcher_707</div>
 
-        <!-- نموذج استقبال الرسائل (عبر خدمة Formspree المجانية) -->
-        <!-- ملاحظة: استبدل YOUR_FORM_ID في الرابط أدناه بمعرف حسابك في موقع Formspree بعد التسجيل المجاني -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-            <div class="form-group">
-                <label><i class="fa-solid fa-user"></i> اسمك / عنوانك:</label>
-                <input type="text" name="name" required placeholder="أدخل اسمك هنا...">
+        <!-- الأرقام الكبيرة للمتابعين والإعجابات -->
+        <div class="stats-section">
+            <div class="stat-box">
+                <div class="stat-number">1.2M</div>
+                <div class="stat-label">المتابَعون</div>
             </div>
-
-            <div class="form-group">
-                <label><i class="fa-solid fa-envelope"></i> بريدك الإلكتروني:</label>
-                <input type="email" name="email" required placeholder="example@domain.com">
+            <div class="stat-box">
+                <div class="stat-number">4.8M</div>
+                <div class="stat-label">المتابعون</div>
             </div>
-
-            <div class="form-group">
-                <label><i class="fa-solid fa-message"></i> رسالتك:</label>
-                <textarea name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+            <div class="stat-box">
+                <div class="stat-number">45.2M</div>
+                <div class="stat-label">الإعجابات</div>
             </div>
+        </div>
 
-            <button type="submit" class="submit-btn">
-                <i class="fa-solid fa-paper-plane"></i> إرسال الرسالة
-            </button>
-        </form>
+        <!-- أزرار التفاعل -->
+        <div class="action-buttons">
+            <button class="btn-tiktok" onclick="alert('تمت المتابعة بنجاح! 🔥')">متابعة</button>
+            <button class="btn-secondary"><i class="fa-solid fa-user-plus"></i></button>
+            <button class="btn-secondary"><i class="fa-solid fa-ellipsis"></i></button>
+        </div>
+
+        <!-- شبكة الفيديوهات -->
+        <div class="videos-grid">
+            <div class="video-thumbnail" style="background: linear-gradient(45deg, #1f1f1f, #333);">
+                <span><i class="fa-solid fa-play"></i> 1.2M</span>
+            </div>
+            <div class="video-thumbnail" style="background: linear-gradient(45deg, #222, #444);">
+                <span><i class="fa-solid fa-play"></i> 3.5M</span>
+            </div>
+            <div class="video-thumbnail" style="background: linear-gradient(45deg, #111, #2b2b2b);">
+                <span><i class="fa-solid fa-play"></i> 850K</span>
+            </div>
+        </div>
     </div>
 
     <footer>
-        تم التصميم بواسطة ! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓 &copy; 2026
+        TikTok Profile Mockup &copy; 2026
     </footer>
 
 </body>
