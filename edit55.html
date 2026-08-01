@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldira City - Gangs Management</title>
+    <title>Aldira City - Gangs Management & Support</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* الهيدر وشعار السيرفر */
         header {
             background: #111827;
             border-bottom: 2px solid #dc2626;
@@ -58,7 +57,6 @@
             color: #9ca3af;
         }
 
-        /* كرت الـ Godfather (أنت) */
         .godfather-badge {
             display: flex;
             align-items: center;
@@ -95,7 +93,16 @@
             padding: 0 20px;
         }
 
-        /* قسم القوانين والدعم */
+        /* تنسيق قسم تسجيل الدخول */
+        .login-section {
+            background: #111827;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid #374151;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
         .section-title {
             font-size: 22px;
             font-weight: 900;
@@ -105,6 +112,97 @@
             padding-right: 12px;
         }
 
+        .login-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: #1f2937;
+            color: #9ca3af;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #dc2626;
+            color: #ffffff;
+        }
+
+        .login-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #9ca3af;
+        }
+
+        .form-control {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 12px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #dc2626;
+        }
+
+        .login-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* لوحة تحكم الأعضاء / المسؤولين بعد الدخول */
+        .user-dashboard, .manager-dashboard {
+            display: none;
+            background: #1f2937;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .manager-dashboard {
+            border-color: #f59e0b;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* بقية الأقسام (القوانين، العصابات) */
         .rules-box, .support-box {
             background: #111827;
             border-radius: 12px;
@@ -129,69 +227,6 @@
             border-left: 3px solid #dc2626;
         }
 
-        /* تنسيق قسم الدعم الفني */
-        .support-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #9ca3af;
-        }
-
-        .form-control {
-            background: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            padding: 12px 15px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: #dc2626;
-            box-shadow: 0 0 10px rgba(220, 38, 38, 0.2);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: #dc2626;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-weight: 900;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            grid-column: 1 / -1;
-            justify-self: start;
-        }
-
-        .submit-btn:hover {
-            background: #b91c1c;
-        }
-
-        /* شبكة العصابات */
         .gangs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -237,7 +272,6 @@
             display: inline-block;
         }
 
-        /* قائمة الرتب */
         .ranks-list {
             padding: 20px;
             display: flex;
@@ -287,7 +321,6 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
     <header>
         <div class="server-brand">
             <img src="https://cdn.discordapp.com/icons/685571728843210811/a_004f148f57ed4c59c97f49d2748badf2.gif?animated=true&size=1024" alt="Aldira City Logo" class="server-logo">
@@ -297,7 +330,6 @@
             </div>
         </div>
 
-        <!-- حسابك (Godfather) -->
         <div class="godfather-badge">
             <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532427020250906624/download_32.jpg?ex=6a6ec9a0&is=6a6d7820&hm=c965982d028d532485d4e14113409d619d8b9a3de97aadd860b2cb0bb51ce01f&" alt="Witcher" class="godfather-avatar">
             <div class="godfather-info">
@@ -309,7 +341,67 @@
 
     <div class="container">
 
-        <!-- قسم القوانين -->
+        <!-- قسم نظام تسجيل الدخول -->
+        <div class="login-section">
+            <div class="section-title">بوابة تسجيل الدخول للنظام</div>
+            
+            <div class="login-tabs">
+                <button class="tab-btn active" onclick="switchTab('member')">تسجيل الأعضاء / الرؤساء</button>
+                <button class="tab-btn" onclick="switchTab('manager')">تسجيل مسؤولين العصابات (الدعم الفني)</button>
+            </div>
+
+            <!-- نموذج دخول الأعضاء والرؤساء -->
+            <div id="memberLoginDiv" class="login-form">
+                <div class="form-group">
+                    <label>اسمك داخل اللعبة:</label>
+                    <input type="text" id="memberName" class="form-control" placeholder="اكتب اسمك...">
+                </div>
+                <div class="form-group">
+                    <label>اختر العصابة:</label>
+                    <select id="memberGang" class="form-control">
+                        <option value="Strike">Strike</option>
+                        <option value="Elite">Elite</option>
+                        <option value="Hellfire">Hellfire</option>
+                        <option value="Doom">Doom</option>
+                        <option value="BLACK MARKET">BLACK MARKET</option>
+                    </select>
+                </div>
+                <button class="login-btn" onclick="loginMember()">دخول للنظام</button>
+            </div>
+
+            <!-- نموذج دخول مسؤولين العصابات -->
+            <div id="managerLoginDiv" class="login-form" style="display: none;">
+                <div class="form-group">
+                    <label>اسم المسؤول:</label>
+                    <input type="text" id="managerName" class="form-control" placeholder="اكتب اسمك المسؤول...">
+                </div>
+                <div class="form-group">
+                    <label>الرتبة المعتمدة:</label>
+                    <input type="text" class="form-control" value="𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々" disabled style="background: #111827; color: #f87171;">
+                </div>
+                <button class="login-btn" style="background: #f59e0b;" onclick="loginManager()">دخول لوحة المسؤولين</button>
+            </div>
+        </div>
+
+        <!-- لوحة عرض بيانات العضو بعد تسجيل الدخول -->
+        <div id="userDashboard" class="user-dashboard">
+            <h3><i class="fa-solid fa-user-check" style="color: #10b981;"></i> أهلاً بك، تم تسجيل دخولك بنجاح:</h3>
+            <p style="font-size: 18px; margin-top: 10px; font-weight: bold;">الاسم: <span id="dispName" style="color: #38bdf8;"></span> | العصابة: <span id="dispGang" style="color: #f43f5e;"></span></p>
+        </div>
+
+        <!-- لوحة تحكم مسؤولين العصابات والدعم الفني -->
+        <div id="managerDashboard" class="manager-dashboard">
+            <h3 style="color: #f59e0b;"><i class="fa-solid fa-shield-cat"></i> لوحة تحكم مسؤولين العصابات (الدعم الفني)</h3>
+            <p style="font-size: 15px; margin-top: 5px; color: #d1d5db;">المسؤول المتصل: <span id="dispMgrName" style="font-weight: bold; color: #fff;"></span> <span style="color: #f87171;">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</span></p>
+            <div style="margin-top: 15px; background: #111827; padding: 15px; border-radius: 8px;">
+                <h4 style="font-size: 14px; color: #9ca3af; margin-bottom: 10px;"><i class="fa-solid fa-ticket"></i> صندوق تذاكر وبلاغات الأعضاء (للرد والمتابعة):</h4>
+                <div id="ticketsList" style="font-size: 13px; color: #94a3b8;">
+                    <p>لا توجد تذاكر معلقة حالياً. سيتم استقبال بلاغات الأعضاء هنا مباشرة للرد عليها.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- القوانين -->
         <div class="section-title">قوانين العصابات العامة</div>
         <div class="rules-box">
             <ul class="rules-list">
@@ -322,10 +414,9 @@
             </ul>
         </div>
 
-        <!-- قسم العصابات والرتب -->
+        <!-- العصابات -->
         <div class="section-title">العصابات المعتمدة في السيرفر</div>
         <div class="gangs-grid">
-
             <!-- 1. Strike -->
             <div class="gang-card">
                 <div class="gang-header">
@@ -420,33 +511,6 @@
                     <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
                 </div>
             </div>
-
-        </div>
-
-        <!-- قسم الدعم الفني / تذاكر الإدارة -->
-        <div class="section-title">الدعم الفني وتذاكر الإدارة</div>
-        <div class="support-box">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="support-form">
-                <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> اسمك داخل اللعبة / الشخصية:</label>
-                    <input type="text" name="player_name" class="form-control" required placeholder="أدخل اسمك...">
-                </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-people-group"></i> العصابة التابع لها (إن وجدت):</label>
-                    <input type="text" name="gang_name" class="form-control" placeholder="مثال: Strike أو مستقل...">
-                </div>
-                <div class="form-group full-width">
-                    <label><i class="fa-solid fa-headset"></i> موضوع البلاغ أو طلب الدعم:</label>
-                    <input type="text" name="subject" class="form-control" required placeholder="عنوان المشكلة باختصار...">
-                </div>
-                <div class="form-group full-width">
-                    <label><i class="fa-solid fa-message"></i> تفاصيل الشكوى أو الطلب:</label>
-                    <textarea name="message" class="form-control" required placeholder="اشرح مشكلتك أو طلبك للإدارة هنا..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fa-solid fa-paper-plane"></i> إرسال التذكرة للإدارة
-                </button>
-            </form>
         </div>
 
     </div>
@@ -455,5 +519,45 @@
         Aldira City - Gangs Management System &copy; 2026 | Developed under the authority of ! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓
     </footer>
 
+    <script>
+        function switchTab(type) {
+            const memberTab = document.querySelectorAll('.tab-btn')[0];
+            const managerTab = document.querySelectorAll('.tab-btn')[1];
+            const memberDiv = document.getElementById('memberLoginDiv');
+            const managerDiv = document.getElementById('managerLoginDiv');
+
+            if(type === 'member') {
+                memberTab.classList.add('active');
+                managerTab.classList.remove('active');
+                memberDiv.style.display = 'grid';
+                managerDiv.style.display = 'none';
+            } else {
+                managerTab.classList.add('active');
+                memberTab.classList.remove('active');
+                managerDiv.style.display = 'grid';
+                memberDiv.style.display = 'none';
+            }
+        }
+
+        function loginMember() {
+            let name = document.getElementById('memberName').value;
+            let gang = document.getElementById('memberGang').value;
+            if(!name) { alert('الرجاء إدخال اسمك!'); return; }
+
+            document.getElementById('dispName').innerText = name;
+            document.getElementById('dispGang').innerText = gang;
+            document.getElementById('userDashboard').style.display = 'block';
+            document.getElementById('managerDashboard').style.display = 'none';
+        }
+
+        function loginManager() {
+            let name = document.getElementById('managerName').value;
+            if(!name) { alert('الرجاء إدخال اسم المسؤول!'); return; }
+
+            document.getElementById('dispMgrName').innerText = name;
+            document.getElementById('managerDashboard').style.display = 'block';
+            document.getElementById('userDashboard').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
