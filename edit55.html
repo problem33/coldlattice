@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓 - TikTok Profile</title>
+    <title>Aldira City - Gangs Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,250 +16,354 @@
         }
 
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #0b0f19;
+            color: #f1f5f9;
             min-height: 100vh;
+        }
+
+        /* الهيدر وشعار السيرفر */
+        header {
+            background: #111827;
+            border-bottom: 2px solid #dc2626;
+            padding: 20px 40px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.2);
         }
 
-        .profile-container {
-            width: 100%;
-            max-width: 450px;
-            background: #1f1f1f;
-            border-radius: 24px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-top: 20px;
-            text-align: center;
-            border: 1px solid #2f2f2f;
-        }
-
-        /* حاوية الصورة مع إطار النار المتحرك */
-        .fire-avatar-container {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px;
+        .server-brand {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 15px;
         }
 
-        /* تأثير إطار النار المتحرك */
-        .fire-avatar-container::before {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff0000, #ff7700, #ffcc00, #ff3300);
-            z-index: 1;
-            animation: fireAnimation 2.5s linear infinite;
-            filter: blur(4px);
-        }
-
-        .fire-avatar-container::after {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff4500, #ff8c00, #ffd700, #ff2400);
-            z-index: 2;
-            animation: fireAnimation 2s linear infinite;
-        }
-
-        @keyframes fireAnimation {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .profile-img {
-            position: relative;
-            z-index: 3;
-            width: 110px;
-            height: 110px;
+        .server-logo {
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #1f1f1f;
+            border: 2px solid #dc2626;
         }
 
-        .username-row {
+        .server-title h1 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .server-title p {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* كرت الـ Godfather (أنت) */
+        .godfather-badge {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin-bottom: 5px;
+            gap: 12px;
+            background: #1f2937;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid #374151;
         }
 
-        h1 {
+        .godfather-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #dc2626;
+        }
+
+        .godfather-info h3 {
+            font-size: 14px;
+            color: #f87171;
+            font-weight: 700;
+        }
+
+        .godfather-info span {
+            font-size: 13px;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* قسم القوانين */
+        .section-title {
             font-size: 22px;
             font-weight: 900;
             color: #ffffff;
-        }
-
-        .verified-badge {
-            color: #20d5ec;
-            font-size: 16px;
-        }
-
-        .handle {
-            color: #8a8a8a;
-            font-size: 13px;
             margin-bottom: 20px;
+            border-right: 5px solid #dc2626;
+            padding-right: 12px;
         }
 
-        /* الإحصائيات (متابعين، إعجابات) */
-        .stats-section {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 25px;
-            padding: 0 10px;
+        .rules-box {
+            background: #111827;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid #1f2937;
         }
 
-        .stat-box {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 18px;
-            font-weight: 900;
-            color: #fff;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #8a8a8a;
-        }
-
-        /* الأزرار */
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .btn-tiktok {
-            flex: 1;
-            background: #fe2c55;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-tiktok:hover {
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            background: #333333;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        /* الفيديوهات الوهمية (شبيه تيك توك) */
-        .videos-grid {
+        .rules-list {
+            list-style: none;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4px;
-            border-top: 1px solid #2f2f2f;
-            padding-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
         }
 
-        .video-thumbnail {
-            background: #2a2a2a;
-            height: 140px;
-            border-radius: 4px;
-            display: flex;
-            align-items: flex-end;
-            padding: 8px;
-            position: relative;
+        .rules-list li {
+            background: #1f2937;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #d1d5db;
+            border-left: 3px solid #dc2626;
+        }
+
+        /* شبكة العصابات */
+        .gangs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .gang-card {
+            background: #111827;
+            border-radius: 16px;
+            border: 1px solid #1f2937;
             overflow: hidden;
-            font-size: 12px;
-            color: #fff;
-            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: 0.3s;
         }
 
-        .video-thumbnail i {
-            margin-left: 4px;
+        .gang-card:hover {
+            border-color: #dc2626;
+            transform: translateY(-5px);
+        }
+
+        .gang-header {
+            background: linear-gradient(135deg, #1f2937, #111827);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #374151;
+        }
+
+        .gang-header h2 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .gang-manager {
+            font-size: 12px;
+            color: #f87171;
+            font-weight: 700;
+            background: rgba(220, 38, 38, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* قائمة الرتب */
+        .ranks-list {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rank-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1f2937;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .rank-num {
+            background: #dc2626;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .rank-name {
+            font-weight: 700;
+            color: #e5e7eb;
+            flex: 1;
+            margin-right: 12px;
         }
 
         footer {
-            margin-top: 30px;
+            background: #111827;
             text-align: center;
-            color: #666;
+            padding: 20px;
+            color: #6b7280;
             font-size: 12px;
+            border-top: 1px solid #1f2937;
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <!-- الصورة والإطار الناري المتحرك -->
-        <div class="fire-avatar-container">
-            <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532721483191816212/8355BE4E-C812-416E-89DC-14147A41450E.gif?ex=6a6de19e&is=6a6c901e&hm=e0f42a3086c1eb9d5fe16662c3a694ea3f3aefc2440fd315326b7fb722e7d12d&" alt="Avatar" class="profile-img">
-        </div>
-
-        <!-- الاسم وعلامة التوثيق -->
-        <div class="username-row">
-            <h1>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓</h1>
-            <i class="fa-solid fa-circle-check verified-badge"></i>
-        </div>
-        <div class="handle">@witcher_707</div>
-
-        <!-- الأرقام الكبيرة للمتابعين والإعجابات -->
-        <div class="stats-section">
-            <div class="stat-box">
-                <div class="stat-number">1.2M</div>
-                <div class="stat-label">المتابَعون</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">4.8M</div>
-                <div class="stat-label">المتابعون</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">45.2M</div>
-                <div class="stat-label">الإعجابات</div>
+    <!-- الهيدر -->
+    <header>
+        <div class="server-brand">
+            <img src="https://cdn.discordapp.com/icons/685571728843210811/a_004f148f57ed4c59c97f49d2748badf2.gif?animated=true&size=1024" alt="Aldira City Logo" class="server-logo">
+            <div class="server-title">
+                <h1>Aldira City</h1>
+                <p>إدارة العصابات والتحكم المركزي</p>
             </div>
         </div>
 
-        <!-- أزرار التفاعل -->
-        <div class="action-buttons">
-            <button class="btn-tiktok" onclick="alert('تمت المتابعة بنجاح! 🔥')">متابعة</button>
-            <button class="btn-secondary"><i class="fa-solid fa-user-plus"></i></button>
-            <button class="btn-secondary"><i class="fa-solid fa-ellipsis"></i></button>
+        <!-- حسابك (Godfather) -->
+        <div class="godfather-badge">
+            <img src="https://cdn.discordapp.com/attachments/1346700261946560546/1532427020250906624/download_32.jpg?ex=6a6ec9a0&is=6a6d7820&hm=c965982d028d532485d4e14113409d619d8b9a3de97aadd860b2cb0bb51ce01f&" alt="Witcher" class="godfather-avatar">
+            <div class="godfather-info">
+                <h3>GODFATHER</h3>
+                <span>! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- قسم القوانين -->
+        <div class="section-title">قوانين العصابات العامة</div>
+        <div class="rules-box">
+            <ul class="rules-list">
+                <li><i class="fa-solid fa-shield-halved"></i> يمنع منعاً باتاً التعرض للمدنيين خارج نطاق سيناريوهات الرول بلاي.</li>
+                <li><i class="fa-solid fa-shield-halved"></i> الالتزام التام بترتيب الرتب داخل العصابة وعدم تجاوز الصلاحيات.</li>
+                <li><i class="fa-solid fa-shield-halved"></i> يمنع استخدام أي ثغرات أو برامج خارجية أثناء الحروب والفعاليات.</li>
+                <li><i class="fa-solid fa-shield-halved"></i> احترام جميع أعضاء الإدارة ومسؤولي العصابات (GANG MANAGER).</li>
+                <li><i class="fa-solid fa-shield-halved"></i> عدم افتعال المشاكل داخل مناطق الـ Safe Zone نهائياً.</li>
+                <li><i class="fa-solid fa-shield-halved"></i> حضور الاجتماعات الدورية التي يحددها الـ Godfather بانتظام.</li>
+            </ul>
         </div>
 
-        <!-- شبكة الفيديوهات -->
-        <div class="videos-grid">
-            <div class="video-thumbnail" style="background: linear-gradient(45deg, #1f1f1f, #333);">
-                <span><i class="fa-solid fa-play"></i> 1.2M</span>
+        <!-- قسم العصابات والرتب -->
+        <div class="section-title">العصابات المعتمدة في السيرفر</div>
+        <div class="gangs-grid">
+
+            <!-- 1. Strike -->
+            <div class="gang-card">
+                <div class="gang-header">
+                    <h2>1. 𝐒𝐭𝐫𝐢𝐤𝐞</h2>
+                    <div class="gang-manager">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</div>
+                </div>
+                <div class="ranks-list">
+                    <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎𝐔𝐍𝐒𝐄𝐋𝐎𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
+                </div>
             </div>
-            <div class="video-thumbnail" style="background: linear-gradient(45deg, #222, #444);">
-                <span><i class="fa-solid fa-play"></i> 3.5M</span>
+
+            <!-- 2. Elite -->
+            <div class="gang-card">
+                <div class="gang-header">
+                    <h2>2. 𝐄𝐥𝐢𝐭𝐞</h2>
+                    <div class="gang-manager">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</div>
+                </div>
+                <div class="ranks-list">
+                    <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎𝐔𝐍𝐒𝐄𝐋𝐎𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
+                </div>
             </div>
-            <div class="video-thumbnail" style="background: linear-gradient(45deg, #111, #2b2b2b);">
-                <span><i class="fa-solid fa-play"></i> 850K</span>
+
+            <!-- 3. Hellfire -->
+            <div class="gang-card">
+                <div class="gang-header">
+                    <h2>3. 𝐇𝐞𝐥𝐥𝐟𝐢𝐫𝐞</h2>
+                    <div class="gang-manager">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</div>
+                </div>
+                <div class="ranks-list">
+                    <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎𝐔𝐍𝐒𝐄𝐋𝐎𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
+                </div>
             </div>
+
+            <!-- 4. Doom -->
+            <div class="gang-card">
+                <div class="gang-header">
+                    <h2>4. 𝐃𝐨𝐨𝐦</h2>
+                    <div class="gang-manager">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</div>
+                </div>
+                <div class="ranks-list">
+                    <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎𝐔𝐍𝐒𝐄𝐋𝐎𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
+                </div>
+            </div>
+
+            <!-- 5. BLACK MARKET -->
+            <div class="gang-card">
+                <div class="gang-header">
+                    <h2>5. 𝐁𝐋𝐀𝐂𝐊 𝐌𝐀𝐑𝐊𝐄𝐓</h2>
+                    <div class="gang-manager">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</div>
+                </div>
+                <div class="ranks-list">
+                    <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎 𝐋𝐄𝐀𝐃𝐄𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐂𝐎𝐔𝐍𝐒𝐄𝐋𝐎𝐑</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <footer>
-        TikTok Profile Mockup &copy; 2026
+        Aldira City - Gangs Management System &copy; 2026 | Developed under the authority of ! 𝑾𝒊𝒕𝒄𝒉𝒆𝒓
     </footer>
 
 </body>
