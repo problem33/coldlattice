@@ -93,7 +93,6 @@
             padding: 0 20px;
         }
 
-        /* تنسيق قسم تسجيل الدخول */
         .login-section {
             background: #111827;
             border-radius: 16px;
@@ -182,7 +181,6 @@
             opacity: 0.9;
         }
 
-        /* لوحات التحكم بعد الدخول */
         .dashboard-box {
             display: none;
             background: #1f2937;
@@ -197,7 +195,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* لوحة العضو وإرسال تذكرة */
         .ticket-box {
             background: #111827;
             padding: 20px;
@@ -206,7 +203,6 @@
             border: 1px solid #374151;
         }
 
-        /* لوحة تحكم المسؤولين والميزات الخاصة بهم */
         .manager-tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -245,16 +241,64 @@
             border-radius: 6px;
         }
 
-        .voice-room {
+        /* الغرفة الصوتية المتقدمة المشابهة لديسكورد مع مشغل القائمة وقائمة التحدّم والصوت */
+        .discord-voice-panel {
             background: #0b0f19;
-            border: 1px solid #10b981;
-            border-radius: 8px;
+            border: 1px solid #5865F2;
+            border-radius: 10px;
             padding: 15px;
-            text-align: center;
+            margin-top: 15px;
         }
 
-        /* القوانين والعصابات */
-        .rules-box, .support-box {
+        .voice-channel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .voice-users-list {
+            min-height: 50px;
+            background: #111827;
+            border-radius: 6px;
+            padding: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .voice-user-pill {
+            background: #1f2937;
+            border: 1px solid #374151;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #10b981;
+        }
+
+        .music-player-box {
+            background: #161e2e;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #374151;
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rules-box {
             background: #111827;
             border-radius: 12px;
             padding: 25px;
@@ -282,7 +326,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .gang-card {
@@ -360,6 +404,64 @@
             margin-right: 12px;
         }
 
+        /* تصميم قسم الدعم الفني القابل للطي في أفل الصفحة */
+        .support-accordion-section {
+            background: #111827;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .support-accordion-header {
+            background: #1f2937;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .support-accordion-header:hover {
+            background: #273449;
+        }
+
+        .support-accordion-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .support-accordion-body {
+            padding: 25px;
+            display: none;
+            background: #111827;
+            border-top: 1px solid #374151;
+        }
+
+        /* صندوق الدعاء والتوفيق في الأسفل */
+        .dua-box {
+            background: linear-gradient(135deg, #161e2e, #111827);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.1);
+        }
+
+        .dua-box p {
+            font-size: 15px;
+            font-weight: 700;
+            color: #34d399;
+            line-height: 1.6;
+        }
+
         footer {
             background: #111827;
             text-align: center;
@@ -392,19 +494,19 @@
 
     <div class="container">
 
-        <!-- قسم نظام تسجيل الدخول بالأكواد السرية -->
+        <!-- بوابة تسجيل الدخول -->
         <div class="login-section">
-            <div class="section-title">بوابة تسجيل الدخول الآمنة (بالأكواد الخاصة)</div>
+            <div class="section-title">بوابة تسجيل الدخول الآمنة (الاسم: coldlattice مع الأكواد المخصصة)</div>
             
             <div class="login-tabs">
-                <button class="tab-btn active" onclick="switchTab('member')">تسجيل الأعضاء / الرؤساء</button>
-                <button class="tab-btn" onclick="switchTab('manager')">تسجيل مسؤولين العصابات (الدعم الفني)</button>
+                <button class="tab-btn active" onclick="switchTab('member')">تسجيل الأعضاء (كود: 696)</button>
+                <button class="tab-btn" onclick="switchTab('manager')">تسجيل المسؤولين (كود: 69)</button>
             </div>
 
             <!-- نموذج دخول الأعضاء -->
             <div id="memberLoginDiv" class="login-form">
                 <div class="form-group">
-                    <label>اسمك داخل اللعبة:</label>
+                    <label>اسمك داخل اللعبة (يجب أن يكون coldlattice):</label>
                     <input type="text" id="memberName" class="form-control" placeholder="اكتب اسمك...">
                 </div>
                 <div class="form-group">
@@ -418,8 +520,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>كود العضو السري:</label>
-                    <input type="password" id="memberCodeInput" class="form-control" placeholder="أدخل كود العضو...">
+                    <label>كود العضو (696):</label>
+                    <input type="password" id="memberCodeInput" class="form-control" placeholder="أدخل الكود...">
                 </div>
                 <button class="login-btn" onclick="loginMember()">دخول للنظام</button>
             </div>
@@ -427,46 +529,46 @@
             <!-- نموذج دخول المسؤولين -->
             <div id="managerLoginDiv" class="login-form" style="display: none;">
                 <div class="form-group">
-                    <label>اسم المسؤول:</label>
-                    <input type="text" id="managerName" class="form-control" placeholder="اكتب اسمك المسؤول...">
+                    <label>اسم المسؤول (يجب أن يكون coldlattice):</label>
+                    <input type="text" id="managerName" class="form-control" placeholder="اكتب اسم المسؤول...">
                 </div>
                 <div class="form-group">
                     <label>الرتبة المعتمدة:</label>
                     <input type="text" class="form-control" value="𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々" disabled style="background: #111827; color: #f87171;">
                 </div>
                 <div class="form-group">
-                    <label>كود المسؤول السري:</label>
+                    <label>كود المسؤول (69):</label>
                     <input type="password" id="managerCodeInput" class="form-control" placeholder="أدخل كود المسؤول...">
                 </div>
                 <button class="login-btn" style="background: #f59e0b;" onclick="loginManager()">دخول لوحة المسؤولين</button>
             </div>
         </div>
 
-        <!-- لوحة تحكم العضو وإرسال التذاكر -->
+        <!-- لوحة تحكم العضو -->
         <div id="userDashboard" class="dashboard-box" style="border: 2px solid #10b981;">
             <h3 style="color: #10b981;"><i class="fa-solid fa-user-check"></i> أهلاً بك، تم التحقق من هويتك بنجاح</h3>
             <p style="font-size: 16px; margin-top: 8px; color: #fff;">الاسم: <span id="dispName" style="color: #38bdf8;"></span> | العصابة: <span id="dispGang" style="color: #f43f5e;"></span></p>
             
             <div class="ticket-box">
-                <h4 style="font-size: 14px; color: #fbbf24; margin-bottom: 10px;"><i class="fa-solid fa-headset"></i> إرسال تذكرة / بلاغ إلى الدعم الفني (مسؤولين العصابات)</h4>
+                <h4 style="font-size: 14px; color: #fbbf24; margin-bottom: 10px;"><i class="fa-solid fa-headset"></i> إرسال تذكرة / بلاغ إلى الدعم الفني</h4>
                 <div class="form-group">
-                    <textarea id="ticketMsgText" class="form-control" rows="3" placeholder="اكتب رسالتك أو شكواك هنا لتصل فوراً لدعم العصابات..."></textarea>
+                    <textarea id="ticketMsgText" class="form-control" rows="3" placeholder="اكتب شكواك أو رسالتك..."></textarea>
                 </div>
                 <button class="login-btn" style="margin-top: 10px; background: #3b82f6;" onclick="sendTicketToSupport()">إرسال التذكرة الآن</button>
-                <p id="ticketStatus" style="font-size: 12px; color: #10b981; margin-top: 8px; display: none;">تم إرسال تذكرتك بنجاح إلى الدعم الفني وسيتم الرد عليك قريباً!</p>
+                <p id="ticketStatus" style="font-size: 12px; color: #10b981; margin-top: 8px; display: none;">تم إرسال تذكرتك بنجاح لدعم العصابات!</p>
             </div>
         </div>
 
-        <!-- لوحة تحكم مسؤولين العصابات (الدعم الفني، الشات، الغرفة الصوتية) -->
+        <!-- لوحة تحكم المسؤولين (مع نظام الغرفة الصوتية المتقدمة وقائمة الأغاني والتحكم بالصوت و Skip) -->
         <div id="managerDashboard" class="dashboard-box" style="border: 2px solid #f59e0b;">
-            <h3 style="color: #f59e0b;"><i class="fa-solid fa-shield-cat"></i> لوحة تحكم مسؤولين العصابات والدعم الفني</h3>
+            <h3 style="color: #f59e0b;"><i class="fa-solid fa-shield-cat"></i> لوحة تحكم مسؤولي العصابات والدعم الفني</h3>
             <p style="font-size: 14px; margin-top: 5px; color: #d1d5db;">المسؤول المتصل: <span id="dispMgrName" style="font-weight: bold; color: #fff;"></span> <span style="color: #f87171;">𝐆𝐀𝐍𝐆 𝐌𝐀𝐍𝐀𝐆𝐄𝐑 ☠️々</span></p>
             
             <div class="manager-tools-grid">
                 <!-- صندوق التذاكر الواردة -->
                 <div class="sub-panel">
-                    <h4 style="font-size: 14px; color: #38bdf8; margin-bottom: 10px;"><i class="fa-solid fa-ticket"></i> صندوق تذاكر الأعضاء الواردة (تحديث فوري):</h4>
-                    <div id="ticketsList" style="font-size: 13px; color: #94a3b8; max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+                    <h4 style="font-size: 14px; color: #38bdf8; margin-bottom: 10px;"><i class="fa-solid fa-ticket"></i> صندوق تذاكر الأعضاء الواردة:</h4>
+                    <div id="ticketsList" style="font-size: 13px; color: #94a3b8; max-height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
                         <p style="color: #6b7280;">لا توجد تذاكر جديدة حالياً...</p>
                     </div>
                 </div>
@@ -475,21 +577,53 @@
                 <div class="sub-panel">
                     <h4 style="font-size: 14px; color: #a78bfa; margin-bottom: 10px;"><i class="fa-solid fa-comments"></i> شات المسؤولين الداخلي:</h4>
                     <div id="mgrChatBox" class="chat-box">
-                        <div class="chat-msg"><b>النظام:</b> مرحباً بكم يا شباب، تم تفعيل الشات الخاص بالمجتمع الإداري.</div>
+                        <div class="chat-msg"><b>النظام:</b> أهلاً بك في شات الدعم الإداري.</div>
                     </div>
                     <div style="display: flex; gap: 5px;">
-                        <input type="text" id="mgrChatInput" class="form-control" placeholder="اكتب رسالة للشات..." style="padding: 8px; font-size: 12px;">
+                        <input type="text" id="mgrChatInput" class="form-control" placeholder="اكتب رسالة..." style="padding: 8px; font-size: 12px;">
                         <button class="login-btn" style="padding: 8px 12px; font-size: 12px;" onclick="sendMgrChat()">إرسال</button>
                     </div>
                 </div>
             </div>
 
-            <!-- غرفة صوتية وهمية للمسؤولين -->
+            <!-- الغرفة الصوتية مع مشغل الأغاني المخصص (روابطك جاهزة والتحكم بالصوت و Skip) -->
             <div class="sub-panel" style="margin-top: 20px;">
-                <h4 style="font-size: 14px; color: #34d399; margin-bottom: 10px;"><i class="fa-solid fa-microphone-lines"></i> الغرفة الصوتية الخاصة بالمسؤولين (Voice Room)</h4>
-                <div class="voice-room">
-                    <p style="font-size: 13px; color: #10b981; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 8px; animation: pulse 1.5s infinite;"></i> متصل الآن في الغرفة الصوتية للمسؤولين</p>
-                    <p style="font-size: 12px; color: #9ca3af; margin-top: 5px;">الميكروفون مفعل ومفتوح للتحدث مع باقي مسؤولي الدعم الفني.</p>
+                <h4 style="font-size: 14px; color: #5865F2; margin-bottom: 10px;"><i class="fa-brands fa-discord"></i> الغرفة الصوتية للمسؤولين (Voice Channel)</h4>
+                
+                <div class="discord-voice-panel">
+                    <div class="voice-channel-header">
+                        <span style="font-size: 13px; font-weight: bold; color: #ffffff;"><i class="fa-solid fa-volume-high" style="color: #5865F2;"></i> إدارة العصابات - روم الصوت</span>
+                        <div>
+                            <button id="joinVoiceBtn" class="login-btn" style="padding: 6px 14px; font-size: 11px; background: #248046;" onclick="joinVoiceChannel()">انضمام للروم</button>
+                            <button id="leaveVoiceBtn" class="login-btn" style="padding: 6px 14px; font-size: 11px; background: #da373c; display: none;" onclick="leaveVoiceChannel()">مغادرة الروم</button>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 11px; color: #9ca3af; margin-bottom: 6px;">الأعضاء المتواجدون في الغرفة الصوتية الآن:</p>
+                    <div id="voiceUsersList" class="voice-users-list">
+                        <span style="font-size: 12px; color: #6b7280;">الغرفة فارغة حالياً... (لم تقم بالانضمام)</span>
+                    </div>
+
+                    <!-- مشغل القائمة والأغاني -->
+                    <div class="music-player-box">
+                        <h5 style="font-size: 12px; color: #fbbf24; margin-bottom: 6px;"><i class="fa-solid fa-music"></i> مشغل الموسيقى (قائمة الأغاني الخاصة بالسيرفر)</h5>
+                        <p id="currentPlayingLabel" style="font-size: 12px; color: #38bdf8; margin-bottom: 8px; font-weight: bold;">جارٍ التشغيل: ابراهيم السلطان - رجع مشتاق</p>
+                        
+                        <!-- عنصر الصوت الفعلي المخفي / المربوط بالتحكم -->
+                        <audio id="gangAudioPlayer" controls style="width: 100%; height: 35px; border-radius: 6px; margin-bottom: 8px;">
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            متصفحك لا يدعم مشغل الصوت
+                        </audio>
+
+                        <div class="player-controls">
+                            <button class="login-btn" style="padding: 6px 12px; font-size: 11px; background: #ef4444;" onclick="skipSong()"><i class="fa-solid fa-forward-step"></i> تخطي (Skip)</button>
+                            <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #9ca3af; margin-right: auto;">
+                                <i class="fa-solid fa-volume-low"></i>
+                                <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1" style="cursor: pointer;" oninput="changeVolume(this.value)">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -581,7 +715,7 @@
                     <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">𝐌𝐄𝐌𝐁𝐄𝐑 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
                     <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">𝐅𝐈𝐄𝐋𝐃 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
                     <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">𝐈𝐍𝐓𝐄𝐑𝐕𝐈𝐄𝐖𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
-                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈CI𝐀𝐋</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">𝐀𝐃𝐒 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span></div>
                     <div class="rank-item"><span class="rank-num">9</span><span class="rank-name">𝐆𝐀𝐍𝐆 𝐌𝐄𝐌𝐁𝐄𝐑</span></div>
                 </div>
             </div>
@@ -606,6 +740,30 @@
             </div>
         </div>
 
+        <!-- خيار الدعم الفني تحت خالص (قابل للطي/الفتح بالضغط) -->
+        <div class="support-accordion-section">
+            <div class="support-accordion-header" onclick="toggleSupportAccordion()">
+                <div class="support-accordion-title">
+                    <i class="fa-solid fa-headset"></i> هل تحتاج إلى مساعدة أو استفسار؟ (اضغط هنا لفتح نظام الدعم الفني)
+                </div>
+                <i id="accordionIcon" class="fa-solid fa-chevron-down" style="color: #fbbf24; transition: 0.3s;"></i>
+            </div>
+            <div id="supportAccordionBody" class="support-accordion-body">
+                <p style="font-size: 13px; color: #9ca3af; margin-bottom: 15px;">قم بإرسال رسالتك أو استفسارك وسيقوم فريق الدعم الفني ومسؤولي العصابات بالرد عليك في أسرع وقت:</p>
+                <div class="form-group">
+                    <input type="text" id="footerSupportName" class="form-control" placeholder="اسمك داخل السيرفر..." style="margin-bottom: 10px;">
+                    <textarea id="footerSupportMsg" class="form-control" rows="3" placeholder="اكتب تفاصيل التذكرة أو المشكلة هنا..."></textarea>
+                </div>
+                <button class="login-btn" style="margin-top: 12px; background: #3b82f6;" onclick="sendFooterTicket()">إرسال التذكرة للإدارة</button>
+                <p id="footerTicketStatus" style="font-size: 12px; color: #10b981; margin-top: 8px; display: none;">تم إرسال تذكرتك بنجاح إلى الإدارة!</p>
+            </div>
+        </div>
+
+        <!-- صندوق الدعاء القصير بالتوفيق -->
+        <div class="dua-box">
+            <p><i class="fa-solid fa-hands-praying" style="margin-left: 8px;"></i> اللهم إنا نسألك التوفيق والسداد في كل خطوة، واجعل التوفيق حليفنا وافتح لنا أبواب الخير والنجاح يارب العالمين.</p>
+        </div>
+
     </div>
 
     <footer>
@@ -613,13 +771,29 @@
     </footer>
 
     <script>
-        // الأكواد السرية المعتمدة
-        const MEMBER_SECRET_CODE = "coldlattice696";
-        const MANAGER_SECRET_CODE = "coldlattice69";
+        const REQUIRED_NAME = "coldlattice";
+        const MEMBER_CODE = "696";
+        const MANAGER_CODE = "69";
 
         let currentMemberName = "";
         let currentMemberGang = "";
         let ticketsQueue = [];
+        let inVoiceChannel = false;
+
+        // قائمة الأغاني المعتمدة من روابط اليوتيوب الخاصة بك
+        const playlist = [
+            {
+                title: "ابراهيم السلطان - رجع مشتاق (حصرياً)",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                youtube: "https://youtu.be/wF_9d-1_Cks?si=nLKq5emgwJSgoJ3e"
+            },
+            {
+                title: "مقطع يوتيوب الثاني (تشغيل مباشر)",
+                src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                youtube: "https://youtu.be/6LiWGeuDdgA?si=HL5ggh7KEMi3iRK3"
+            }
+        ];
+        let currentSongIndex = 0;
 
         function switchTab(type) {
             const memberTab = document.querySelectorAll('.tab-btn')[0];
@@ -636,20 +810,17 @@
                 managerTab.classList.add('active');
                 memberTab.classList.remove('active');
                 managerDiv.style.display = 'grid';
-                memberDiv.style.display = 'none';
+                managerDiv.style.display = 'none';
             }
         }
 
         function loginMember() {
-            let name = document.getElementById('memberName').value;
+            let name = document.getElementById('memberName').value.trim();
             let gang = document.getElementById('memberGang').value;
-            let code = document.getElementById('memberCodeInput').value;
+            let code = document.getElementById('memberCodeInput').value.trim();
 
-            if(!name) { alert('الرجاء إدخال اسمك!'); return; }
-            
-            // التحقق من كود العضو بدقة
-            if(code !== MEMBER_SECRET_CODE) {
-                alert('خطأ: كود العضو غير صحيح! تم رفض محاولة التسجيل.');
+            if (name !== REQUIRED_NAME || code !== MEMBER_CODE) {
+                alert('خطأ: اسم العضو يجب أن يكون "coldlattice" والكود "696"! تم رفض التسجيل.');
                 return;
             }
 
@@ -664,24 +835,20 @@
         }
 
         function loginManager() {
-            let name = document.getElementById('managerName').value;
-            let code = document.getElementById('managerCodeInput').value;
+            let name = document.getElementById('managerName').value.trim();
+            let code = document.getElementById('managerCodeInput').value.trim();
 
-            if(!name) { alert('الرجاء إدخال اسم المسؤول!'); return; }
-
-            // التحقق من كود المسؤول بدقة
-            if(code !== MANAGER_SECRET_CODE) {
-                alert('خطأ: كود المسؤول غير صحيح! تم رفض محاولة التسجيل.');
+            if (name !== REQUIRED_NAME || code !== MANAGER_CODE) {
+                alert('خطأ: اسم المسؤول يجب أن يكون "coldlattice" والكود "69"! تم رفض التسجيل.');
                 return;
             }
 
             document.getElementById('dispMgrName').innerText = name;
             document.getElementById('managerDashboard').style.display = 'block';
             document.getElementById('userDashboard').style.display = 'none';
-            alert('تم تسجيل الدخول بنجاح إلى لوحة الدعم الفني والمسؤولين');
+            alert('تم تسجيل الدخول بنجاح إلى لوحة المسؤولين والدعم الفني');
         }
 
-        // إرسال التذكرة لتصل فوراً لمسؤولين الدعم الفني
         function sendTicketToSupport() {
             let msg = document.getElementById('ticketMsgText').value;
             if(!msg) { alert('الرجاء كتابة محتوى التذكرة!'); return; }
@@ -689,7 +856,7 @@
             let ticketObj = {
                 id: Math.floor(Math.random() * 9000) + 1000,
                 name: currentMemberName,
-                gang: currentMemberGang,
+                gang: currentMemberGang || 'عضو عام',
                 message: msg,
                 time: new Date().toLocaleTimeString('ar-SA')
             };
@@ -704,7 +871,48 @@
             renderTicketsToManagers();
         }
 
-        // تحديث وعرض التذاكر في لوحة الدعم الفني للمسؤولين
+        // إرسال تذكرة من قائمة الدعم الفني التابعة بأسفل الصفحة
+        function sendFooterTicket() {
+            let nameInput = document.getElementById('footerSupportName').value.trim();
+            let msg = document.getElementById('footerSupportMsg').value.trim();
+
+            if(!nameInput || !msg) {
+                alert('الرجاء كتابة الاسم ومحتوى التذكرة!');
+                return;
+            }
+
+            let ticketObj = {
+                id: Math.floor(Math.random() * 9000) + 1000,
+                name: nameInput,
+                gang: 'زائر / مدني',
+                message: msg,
+                time: new Date().toLocaleTimeString('ar-SA')
+            };
+
+            ticketsQueue.push(ticketObj);
+            document.getElementById('footerSupportName').value = "";
+            document.getElementById('footerSupportMsg').value = "";
+
+            let statusEl = document.getElementById('footerTicketStatus');
+            statusEl.style.display = 'block';
+            setTimeout(() => { statusEl.style.display = 'none'; }, 4000);
+
+            renderTicketsToManagers();
+        }
+
+        // فتح وإغلاق قائمة الدعم الفني في الأسفل
+        function toggleSupportAccordion() {
+            let body = document.getElementById('supportAccordionBody');
+            let icon = document.getElementById('accordionIcon');
+            if(body.style.display === 'block') {
+                body.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                body.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
         function renderTicketsToManagers() {
             let listContainer = document.getElementById('ticketsList');
             if(ticketsQueue.length === 0) {
@@ -721,7 +929,7 @@
                             <span style="font-size: 11px; color: #9ca3af;">${t.time}</span>
                         </div>
                         <p style="margin-top: 4px; color: #d1d5db;">${t.message}</p>
-                        <button onclick="closeTicket(${index})" style="background: #ef4444; border: none; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-top: 6px; cursor: pointer;">إغلاق التذكرة والرد</button>
+                        <button onclick="closeTicket(${index})" style="background: #ef4444; border: none; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-top: 6px; cursor: pointer;">إغلاق التذكرة</button>
                     </div>
                 `;
             });
@@ -731,21 +939,70 @@
         function closeTicket(index) {
             ticketsQueue.splice(index, 1);
             renderTicketsToManagers();
-            alert('تم التعامل مع التذكرة وإغلاقها بنجاح.');
+            alert('تم إغلاق التذكرة.');
         }
 
-        // شات المسؤولين الداخلي
         function sendMgrChat() {
             let input = document.getElementById('mgrChatInput');
             let text = input.value;
             if(!text) return;
 
             let chatBox = document.getElementById('mgrChatBox');
-            let mgrName = document.getElementById('dispMgrName').innerText || "مسؤول";
-            
-            chatBox.innerHTML += `<div class="chat-msg"><b>${mgrName}:</b> ${text}</div>`;
+            chatBox.innerHTML += `<div class="chat-msg"><b>${REQUIRED_NAME}:</b> ${text}</div>`;
             input.value = "";
             chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // انضمام ومغادرة الروم الصوتي
+        function joinVoiceChannel() {
+            inVoiceChannel = true;
+            document.getElementById('joinVoiceBtn').style.display = 'none';
+            document.getElementById('leaveVoiceBtn').style.display = 'inline-block';
+            updateVoiceUsersUI();
+        }
+
+        function leaveVoiceChannel() {
+            inVoiceChannel = false;
+            document.getElementById('joinVoiceBtn').style.display = 'inline-block';
+            document.getElementById('leaveVoiceBtn').style.display = 'none';
+            updateVoiceUsersUI();
+            
+            // إيقاف الصوت عند مغادرة الروم
+            let audio = document.getElementById('gangAudioPlayer');
+            audio.pause();
+        }
+
+        function updateVoiceUsersUI() {
+            let listContainer = document.getElementById('voiceUsersList');
+            if (!inVoiceChannel) {
+                listContainer.innerHTML = '<span style="font-size: 12px; color: #6b7280;">الغرفة فارغة حالياً... (لم تقم بالانضمام)</span>';
+            } else {
+                listContainer.innerHTML = `
+                    <div class="voice-user-pill">
+                        <i class="fa-solid fa-microphone" style="color: #22c55e;"></i>
+                        <span>${REQUIRED_NAME} (متحدث في الروم)</span>
+                    </div>
+                `;
+            }
+        }
+
+        // زر التخطي (Skip) للأغنية التالية في القائمة
+        function skipSong() {
+            currentSongIndex = (currentSongIndex + 1) % playlist.length;
+            let currentSong = playlist[currentSongIndex];
+            
+            let audio = document.getElementById('gangAudioPlayer');
+            audio.src = currentSong.src;
+            audio.play();
+
+            document.getElementById('currentPlayingLabel').innerText = "جارٍ التشغيل: " + currentSong.title;
+            alert('تم تخطي الأغنية والانتقال للـتالية في القائمة!');
+        }
+
+        // التحكم بصوت الأغاني (Volume Slider)
+        function changeVolume(val) {
+            let audio = document.getElementById('gangAudioPlayer');
+            audio.volume = val;
         }
     </script>
 </body>
