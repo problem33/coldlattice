@@ -1,1 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معهد الدراسات البحرية - كازابلانكا | Maritime Studies Institute Casablanca (DEMO)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
 
+    <!-- تنبيه الموقع التجريبي -->
+    <div class="bg-amber-500 text-slate-950 px-4 py-2 text-center text-xs font-black tracking-wider uppercase flex items-center justify-center gap-2 shadow-md z-50">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>تنبيه هامة: هذا الموقع تجريبي (DEMO) وغير رسمي، تم إنشاؤه لغرض الاختبار والتطوير فقط ولا ينتمي لأي جهة رسمية حقيقية.</span>
+    </div>
+
+    <!-- الشريط العلوي (Navbar) -->
+    <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <!-- شعار المعهد SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-12 h-12">
+                    <circle cx="50" cy="50" r="45" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                    <path d="M50 15 L80 65 H20 Z" fill="none" stroke="#38bdf8" stroke-width="3"/>
+                    <path d="M35 50 H65 M50 35 V65" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="6" fill="#f59e0b"/>
+                </svg>
+                <div>
+                    <h1 class="font-black text-base md:text-lg tracking-wide text-white">معهد الدراسات البحرية</h1>
+                    <p class="text-xs text-sky-400 font-semibold">Casablanca Maritime Studies Institute</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6 space-x-reverse text-sm font-semibold text-slate-300">
+                <a href="#home" class="hover:text-sky-400 transition">الرئيسية</a>
+                <a href="#programs" class="hover:text-sky-400 transition">التخصصات</a>
+                <a href="#register" class="hover:text-sky-400 transition">بوابة القبول</a>
+                <a href="#admin-login" class="hover:text-sky-400 transition text-amber-400"><i class="fa-solid fa-lock"></i> دخول الموظفين</a>
+            </nav>
+            <button onclick="switchTab('register')" class="bg-sky-600 hover:bg-sky-500 text-white font-bold px-4 py-2 rounded-xl text-sm transition shadow-lg">قدم الآن</button>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow">
+        
+        <!-- قسم الرئيسية والهيرو -->
+        <section id="home" class="py-16 px-4 text-center bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-900">
+            <div class="max-w-4xl mx-auto">
+                <span class="bg-sky-500/10 text-sky-400 text-xs font-bold px-3 py-1 rounded-full border border-sky-500/20 inline-block mb-4">بوابة التسجيل الأكاديمي الموحدة</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">مستقبلك يبدأ من هنا في أعماق البحار والملاحة الدولية</h2>
+                <p class="text-slate-400 text-base md:text-lg mb-8">إدارة المعهد بإشراف عام: <span class="text-white font-bold">جاسم علي المطيري</span> (مدير المعهد). سجل الآن في برامجنا الأكاديمية المعتمدة تجريبياً.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="switchTab('register')" class="bg-sky-600 hover:bg-sky-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg">تسجيل طالب جديد</button>
+                    <button onclick="switchTab('admin-login')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold px-6 py-3 rounded-xl transition">لوحة تحكم الموظفين والمدير</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التخصصات -->
+        <section id="programs" class="max-w-7xl mx-auto px-4 py-16">
+            <h3 class="text-2xl font-bold mb-8 border-r-4 border-sky-500 pr-3">التخصصات المتاحة (Academic Programs)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <div class="text-sky-400 text-2xl mb-3"><i class="fa-solid fa-ship"></i></div>
+                    <h4 class="text-lg font-bold mb-2">ملاحة بحرية (Marine Navigation)</h4>
+                    <p class="text-slate-400 text-sm">تأهيل ضباط بحريين وفق أعلى المعايير العالمية للملاحة وقيادة السفن التجارية.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <div class="text-sky-400 text-2xl mb-3"><i class="fa-solid fa-gears"></i></div>
+                    <h4 class="text-lg font-bold mb-2">هندسة بحرية (Marine Engineering)</h4>
+                    <p class="text-slate-400 text-sm">دراسة صيانة وتشغيل محركات السفن والأنظمة الهيكلية الميكانيكية البحرية المتقدمة.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <div class="text-sky-400 text-2xl mb-3"><i class="fa-solid fa-anchor"></i></div>
+                    <h4 class="text-lg font-bold mb-2">إدارة الموانئ واللوجستيات (Port Management)</h4>
+                    <p class="text-slate-400 text-sm">إدارة العمليات اللوجستية وسلاسل الإمداد وإدارة المحطات والموانئ البحرية الحديثة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بوابة التسجيل (Register Section) -->
+        <section id="register" class="max-w-3xl mx-auto px-4 py-12">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+                <h3 class="text-2xl font-black mb-2 text-center text-sky-400">بوابة قبول وتسجيل المتقدمين</h3>
+                <p class="text-center text-slate-400 text-sm mb-6">الرجاء إدخال البيانات بدقة. الشروط: معدل الثانوية لا يقل عن 75%، وقدرات لا تقل عن 65%.</p>
+                
+                <form id="admissionForm" onsubmit="handleRegistration(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">الاسم الكامل (Full Name) *</label>
+                            <input type="text" id="regName" required placeholder="مثال: محمد أحمد" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">البريد الإلكتروني (Email Address) *</label>
+                            <input type="email" id="regEmail" required placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">رقم الجوال (Mobile Number) *</label>
+                            <input type="text" id="regPhone" required placeholder="05xxxxxxxx" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">التخصص المطلوب (Program) *</label>
+                            <select id="regProgram" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                                <option value="Marine Navigation">ملاحة بحرية (Marine Navigation)</option>
+                                <option value="Marine Engineering">هندسة بحرية (Marine Engineering)</option>
+                                <option value="Port Management">إدارة الموانئ واللوجستيات (Port Management)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">معدل الثانوي % (High School >= 75) *</label>
+                            <input type="number" step="0.01" id="regHighSchool" required min="0" max="100" placeholder="75" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">درجة القدرات % (Qudrat >= 65) *</label>
+                            <input type="number" step="0.01" id="regQudrat" required min="0" max="100" placeholder="65" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 mb-1">درجة اختبار ستيب (STEP - اختیاري)</label>
+                            <input type="number" step="1" id="regStep" min="0" max="150" placeholder="اختياري للمفاضلة" class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-sky-500 outline-none">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 rounded-xl transition shadow-lg mt-4">إرسال طلب التسجيل</button>
+                </form>
+
+                <!-- صندوق عرض رسالة التأكيد التجريبية -->
+                <div id="confirmationBox" class="hidden mt-6 p-6 bg-slate-950 border border-emerald-500/50 rounded-xl">
+                    <div class="text-emerald-400 font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> تم استلام طلبك بنجاح (Simulation Email & SMS)</div>
+                    <div id="emailPreviewContent" class="text-xs text-slate-300 whitespace-pre-line bg-slate-900 p-4 rounded-lg border border-slate-800 leading-relaxed"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بوابة تسجيل دخول الموظفين / المدير -->
+        <section id="admin-login" class="max-w-md mx-auto px-4 py-12 hidden">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+                <h3 class="text-xl font-black mb-4 text-center text-amber-400"><i class="fa-solid fa-lock"></i> تسجيل دخول الموظفين والمدير</h3>
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">البريد الإلكتروني للإدارة</label>
+                        <input type="email" id="adminEmailInput" required class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">كلمة المرور</label>
+                        <input type="password" id="adminPassInput" required class="w-full bg-slate-950 border border-slate-750 rounded-xl px-4 py-2.5 text-sm text-white focus:border-amber-500 outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-black py-3 rounded-xl transition shadow-lg">دخول لوحة التحكم</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- لوحة تحكم الإدارة والموظفين (Admin Dashboard) -->
+        <section id="admin-dashboard" class="max-w-6xl mx-auto px-4 py-12 hidden">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h3 class="text-2xl font-black text-amber-400">لوحة تحكم شؤون المتقدمين</h3>
+                    <p class="text-xs text-slate-400">مدير المعهد: <span class="text-white font-bold">جاسم علي المطيري</span></p>
+                </div>
+                <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-xl text-xs font-bold">تسجيل خروج</button>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 overflow-x-auto">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-800 text-xs text-slate-400">
+                            <th class="p-3">اسم المتقدم</th>
+                            <th class="p-3">البريد / الجوال</th>
+                            <th class="p-3">التخصص</th>
+                            <th class="p-3">ثانوي / قدرات / ستيب</th>
+                            <th class="p-3">الحالة</th>
+                            <th class="p-3">الإجراءات (قبول وترشيح)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicantsTableBody" class="text-sm">
+                        <!-- تضاف الطلبات ديناميكياً هنا -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2 font-bold text-slate-300">معهد الدراسات البحرية - كازابلانكا (Casablanca Maritime Studies Institute) © 2026</p>
+            <p>جميع الاعتمادات وأرقام التواصل والروابط في هذا الموقع هي وهمية ومخصصة لأغراض التجربة والاختبار فقط (DEMO).</p>
+        </div>
+    </footer>
+
+    <!-- سكربت التشغيل ومنطق العمليات -->
+    <script>
+        // قاعدة بيانات وهمية مخزنة في متصفحك (LocalStorage)
+        let applicants = JSON.parse(localStorage.getItem('institute_applicants')) || [];
+
+        // بيانات المدير المعتمدة لديك
+        const ADMIN_CREDENTIALS = {
+            email: "jasemm129n@gmail.com",
+            pass: "0568066813"
+        };
+
+        function switchTab(tabId) {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('programs').classList.add('hidden');
+            document.getElementById('register').classList.add('hidden');
+            document.getElementById('admin-login').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+
+            if(tabId === 'register') {
+                document.getElementById('register').classList.remove('hidden');
+            } else if(tabId === 'admin-login') {
+                document.getElementById('admin-login').classList.remove('hidden');
+            } else if(tabId === 'admin-dashboard') {
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                renderApplicantsTable();
+            } else {
+                document.getElementById('home').classList.remove('hidden');
+                document.getElementById('programs').classList.remove('hidden');
+            }
+        }
+
+        // معالجة تسجيل طالب جديد مع شروط القبول (ثانوي 75، قدرات 65)
+        function handleRegistration(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const program = document.getElementById('regProgram').value;
+            const highSchool = parseFloat(document.getElementById('regHighSchool').value);
+            const qudrat = parseFloat(document.getElementById('regQudrat').value);
+            const step = document.getElementById('regStep').value || 'غير محدد';
+
+            // شروط الرفض الآلي
+            if(highSchool < 75 || qudrat < 65) {
+                alert('عذراً، لم تحقق الحد الأدنى لشروط القبول (معدل الثانوي يجب ألا يقل عن 75% والقدرات عن 65%). تم رفض الطلب آلياً.');
+                return;
+            }
+
+            const newApplicant = {
+                id: Date.now(),
+                name, email, phone, program, highSchool, qudrat, step,
+                status: 'قيد المراجعة (Pending)'
+            };
+
+            applicants.push(newApplicant);
+            localStorage.setItem('institute_applicants', JSON.stringify(applicants));
+
+            // عرض رسالة التأكيد عبر الإيميل والـ SMS المعدلة خصيصاً
+            const confirmationText = `عزيزي/تي ${name}،
+لقد وصل طلب تسجيلك على منصة القبول والتسجيل التابعة لـ معهد الدراسات البحرية - كازابلانكا.
+للبدء والتحقق من حسابك، يرجى النقر على الرابط التجريبي أدناه:
+[انقر هنا للتحقق - رابط تجريبي وهمي]
+
+أفضل التحيات،
+فريق الإدارة التنفيذية لرأس المال البشري – معهد الدراسات البحرية كازابلانكا
+مدير المعهد: جاسم علي المطيري
+
+--------------------------------------------------
+NOTICE TO RECIPIENT | The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without written consent of the sender.`;
+
+            document.getElementById('confirmationBox').classList.remove('hidden');
+            document.getElementById('emailPreviewContent').innerText = confirmationText;
+            document.getElementById('admissionForm').reset();
+            alert('تم تقديم طلبك بنجاح وإرسال رسالة التأكيد الوهمية على الايميل والجوال!');
+        }
+
+        // تسجيل دخول المدير / الموظفين
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmailInput').value;
+            const pass = document.getElementById('adminPassInput').value;
+
+            if(email === ADMIN_CREDENTIALS.email && pass === ADMIN_CREDENTIALS.pass) {
+                alert('مرحباً بك أستاذ جاسم علي المطيري (مدير المعهد)');
+                switchTab('admin-dashboard');
+            } else {
+                alert('بيانات الدخول غير صحيحة! يرجى التأكد من الايميل وكلمة المرور الخاصة بالمدير.');
+            }
+        }
+
+        function logoutAdmin() {
+            switchTab('home');
+        }
+
+        // عرض جدول المتقدمين للمدير
+        function renderApplicantsTable() {
+            const tbody = document.getElementById('applicantsTableBody');
+            tbody.innerHTML = '';
+
+            if(applicants.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-slate-500">لا توجد طلبات مسجلة حتى الآن.</td></tr>`;
+                return;
+            }
+
+            applicants.forEach((app, index) => {
+                tbody.innerHTML += `
+                    <tr class="border-b border-slate-800/60 hover:bg-slate-800/30">
+                        <td class="p-3 font-bold text-white">${app.name}</td>
+                        <td class="p-3 text-xs text-slate-400">${app.email}<br>${app.phone}</td>
+                        <td class="p-3 text-sky-400">${app.program}</td>
+                        <td class="p-3 text-xs">ثانوي: ${app.highSchool}%<br>قدرات: ${app.qudrat}%<br>ستيب: ${app.step}</td>
+                        <td class="p-3"><span class="px-2.5 py-1 rounded-full text-xs font-bold ${app.status.includes('مرشح') ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}">${app.status}</span></td>
+                        <td class="p-3 flex gap-2">
+                            <button onclick="nominateApplicant(${app.id})" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">ترشيح للمقابلة</button>
+                            <button onclick="deleteApplicant(${app.id})" class="bg-rose-600 hover:bg-rose-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">حذف</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // ترشيح المتقدم وإرسال الرسالة المعدلة عبر SMS والبريد
+        function nominateApplicant(id) {
+            const app = applicants.find(a => a.id === id);
+            if(!app) return;
+
+            app.status = 'تم الترشيح للمقابلة (Nominated)';
+            localStorage.setItem('institute_applicants', JSON.stringify(applicants));
+            renderApplicantsTable();
+
+            // رسالة الترشيح المخصصة التي طلبتها
+            const nominationMessage = `عزيزي المتقدم ${app.name}،
+نود إشعارك بأنه تم تحديد موعد المقابلة الشخصية مع معهد الدراسات البحرية كازابلانكا، ضمن إجراءات القبول في برنامج (${app.program}).
+شروط القبول:
+* التفرغ التام للدراسة.
+* العمر لا يقل عن 18 سنة ولا يزيد عن 30 سنة.
+* عدم وجود سجل تجاري نشط.
+📅 موعد المقابلة: غدا يوم الاربعاء 05-08-2026.
+🕚 الوقت: من الساعة 11:00 صباحًا الى 12:00 الظهر.
+📍 المكان: مقر المعهد الرئيسي - القسم التوجيهي.
+يرجى إحضار أصل شهادة الثانوية - درجات قياس - والسيرة الذاتية عند الحضور.
+ملاحظة: في حال سبق لك عمل المقابلة معنا فلا يلزم حضورك هذه المقابلة.
+
+تحيات إدارة المعهد - المدير: جاسم علي المطيري`;
+
+            alert(`[تم إرسال SMS وإيميل الترشيح بنجاح للمتقدم ${app.name}]:\n\n` + nominationMessage);
+        }
+
+        function deleteApplicant(id) {
+            applicants = applicants.filter(a => a.id !== id);
+            localStorage.setItem('institute_applicants', JSON.stringify(applicants));
+            renderApplicantsTable();
+        }
+    </script>
+</body>
+</html>
